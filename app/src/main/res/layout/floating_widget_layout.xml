@@ -465,5 +465,21 @@
 
         </LinearLayout>
 
+        <!-- Build access Layout -->
+        <LinearLayout
+            android:id="@+id/build_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:weightSum="1">
+
+
+
+
+        </LinearLayout>
+
     </RelativeLayout>
 </FrameLayout>
