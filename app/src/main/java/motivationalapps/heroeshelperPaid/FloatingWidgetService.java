@@ -33,7 +33,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams wrapParams;
     private WindowManager.LayoutParams matchParams;
-    private View mFloatingWidgetView, collapsedView, expandedView, infoView;
+    private View mFloatingWidgetView, collapsedView, expandedView, infoView, buildView;
     private String floatWidth;
     private Point szWindow = new Point();
     private LayoutInflater inflater;
@@ -259,6 +259,9 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         //find id of the info creation layout
         infoView = mFloatingWidgetView.findViewById(R.id.content_container);
+
+        //find id of the recommended build layout
+        buildView = mFloatingWidgetView.findViewById(R.id.build_container);
         addTextViews();
 
     }
@@ -378,6 +381,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //mFloatingWidgetView.findViewById(R.id.open_activity_button).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.info_button).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.close_content_view).setOnClickListener(this);
+        mFloatingWidgetView.findViewById(R.id.build_view).setOnClickListener(this);
+        mFloatingWidgetView.findViewById(R.id.close_build_view).setOnClickListener(this);
     }
 
 
@@ -418,6 +423,17 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 //Close the info view and open up the expanded view
                 infoView.setVisibility(View.GONE);
                 expandedView.setVisibility(View.VISIBLE);
+                break;
+            case R.id.build_view:
+                //Close info view and open up the build view
+                infoView.setVisibility(View.GONE);
+                buildView.setVisibility(View.VISIBLE);
+                break;
+            case R.id.close_build_view:
+                //Close build view and open info view
+                buildView.setVisibility(View.GONE);
+                infoView.setVisibility(View.VISIBLE);
+                break;
         }
     }
 

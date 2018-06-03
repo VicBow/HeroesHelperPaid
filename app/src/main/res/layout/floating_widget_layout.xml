@@ -271,6 +271,13 @@
                         android:layout_alignParentTop="true"
                         android:contentDescription="@string/closeWindowDesc"
                         android:src="@drawable/ic_black_left_arrow" />
+
+                    <ImageView
+                        android:id="@+id/build_view"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/close_content_view"
+                        android:src="@drawable/weapon" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -476,8 +483,177 @@
             android:visibility="gone"
             android:weightSum="1">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".85"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Abel"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Recommended Builds"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <!--  ImageView to Close Build View  -->
+                <ImageView
+                    android:id="@+id/close_build_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".15"
+                    android:contentDescription="@string/closeWindowDesc"
+                    android:src="@drawable/ic_black_left_arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TableLayout
+                    android:id="@+id/buildLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp">
+
+                    <TableRow android:padding="5dp">
+
+                        <Button android:text="Build 1"
+                            android:background="@drawable/build_button_active"
+                            android:layout_marginEnd="5dp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/weapon" />
+
+                        <TextView
+                            android:gravity="center_vertical"
+                            android:text="Fireseep Lance+" />
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+
+                        <Button android:text="Build 2"
+                            android:background="@drawable/build_button_inactive"
+                            android:layout_marginEnd="5dp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/shield" />
+
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="Reposition" />
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+
+                        <Button android:text="Build 3"
+                            android:background="@drawable/build_button_inactive"
+                            android:layout_marginEnd="5dp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/skills" />
+
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="Luna/Moonbow" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/buildRight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp">
+
+                    <TableRow android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/weapon"/>
+
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="Life and Death 3/\nSwift Sparrow 2"/>
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/weapon" />
+
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="Chill Spd 3/\nHit and Run" />
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/weapon" />
+
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="Hone Cavalry" />
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/weapon" />
+
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="Speed +3/\nQuickened Pulse" />
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
