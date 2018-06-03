@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Heroes Helper</string>
+    <string name="create_floating_widget">Get Started!</string>
+    <string name="draw_other_app_permission_denied">Draw over other app permission not available. App won\'t work without permission. Please try again.</string>
+
+    <!-- v.x.y.z
+        x is for any major update to app (new feature)
+        y is for any design change
+        z is for content changes, corrections
+    -->
+    <string name="last_updated">Last Updated: 1 Jun 2018 \nv1.4.5</string>
+
+    <string name="feedback">Submit Feedback</string>
+    <string name="title_send_feedback">Send Feedback</string>
+    <string name="mail_feedback_email">motivationalapps2017@gmail.com</string>
+    <string name="mail_feedback_subject">Feedback on your Heroes app</string>
+    <string name="feedback_info">Like the app? Hate the app? Suggestions for the app? Is something incorrect in the app? Send us some feedback so we can make it better!</string>
+
+    <string name="purchase">Remove Ads</string>
+    <string name="close">Close</string>
+
+    <string name="calc">Calculate IV</string>
+    <string name="rating">Stars:</string>
+    <string name="weapon">Weapon:</string>
+    <string name="color">Color:</string>
+    <string name="name">Name:</string>
+    <string name="level">LVL</string>
+    <string name="hp">HP</string>
+    <string name="atk">Atk</string>
+    <string name="spd">Spd</string>
+    <string name="def">Def</string>
+    <string name="res">Res</string>
+    <string name="low">Low</string>
+    <string name="middle">Middle</string>
+    <string name="high">High</string>
+    <string name="levelOne">Level 1</string>
+    <string name="levelForty">Level 40</string>
+    <string name="closeWindowDesc">Close current window</string>
+    <string name="feedbackHint">Your Message</string>
+    <string name="recommended">Recommended IV\'s</string>
+    <string name="recommended_stat">Recommended IV</string>
+
+    <string-array name="rating_stars">
+        <item>&#9733; &#9733; &#9733; &#9733; &#9733;</item>
+        <item>&#9733; &#9733; &#9733; &#9733;</item>
+        <item>&#9733; &#9733; &#9733;</item>
+    </string-array>
+
+    <string-array name="weapons">
+        <item>Equipped</item>
+        <item>Not Equipped</item>
+    </string-array>
+
+    <string-array name="colors">
+        <item>Blue</item>
+        <item>Colorless</item>
+        <item>Green</item>
+        <item>Red</item>
+    </string-array>
+
+    <string-array name="rating_colors">
+        <item>#FFD700</item>
+        <item>#E6E8FA</item>
+        <item>#8C7853</item>
+    </string-array>
+
+
+</resources>

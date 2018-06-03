@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!--   Root container of Floating Widget View  -->
+    <RelativeLayout
+        android:id="@+id/root_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--  View while view is collapsed  -->
+
+        <RelativeLayout
+            android:id="@+id/collapse_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!--   ImageView of floating widget  -->
+            <ImageView
+                android:id="@+id/collapsed_iv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/icon"
+                tools:ignore="ContentDescription" />
+
+            <!--   Close button to close Floating Widget View  -->
+            <ImageView
+                android:id="@+id/close_floating_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/circle_shape"
+                android:src="@drawable/ic_close_white_24dp"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+
+        <!--   View while view is expanded   -->
+        <!-- All the words and then the button on the bottom -->
+        <LinearLayout
+            android:id="@+id/expanded_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Horizontal for options listed on left and close button on right -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TableLayout
+                    android:id="@+id/expanded_table"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".85"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp">
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/rating"
+                            android:gravity="center_vertical"
+                            android:text="@string/rating"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Spinner
+                            android:id="@+id/rating_spinner"
+                            android:layout_weight="1"
+                            android:textAlignment="center" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/color"
+                            android:gravity="center_vertical"
+                            android:text="@string/color"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Spinner
+                            android:id="@+id/color_spinner"
+                            android:layout_weight="1"
+                            android:textAlignment="center" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:gravity="center_vertical"
+                            android:text="@string/name"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Spinner
+                            android:id="@+id/name_spinner"
+                            android:layout_weight="1"
+                            android:textAlignment="center" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/weapon"
+                            android:gravity="center_vertical"
+                            android:text="@string/weapon"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Spinner
+                            android:id="@+id/weapon_spinner"
+                            android:layout_weight="1"
+                            android:textAlignment="center" />
+                    </TableRow>
+
+                </TableLayout>
+                <!-- Right side for close and open buttons -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".15"
+                    android:orientation="vertical">
+
+
+                    <!--  ImageView to Close Expanded View  -->
+                    <ImageView
+                        android:id="@+id/close_expanded_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@string/closeWindowDesc"
+                        android:src="@drawable/ic_minimize" />
+
+                    <!-- To be potentially added later
+                    <ImageView
+                        android:id="@+id/open_activity_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/close_expanded_view"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_aspect_ratio_black_24dp" />
+                    -->
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <!--Level Row -->
+            <RadioGroup
+                android:id="@+id/level_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/black"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:checked="true"
+                    android:text="@string/levelOne"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_forty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/levelForty"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+            </RadioGroup>
+
+            <!-- Button to view quick access -->
+            <Button
+                android:id="@+id/info_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:text="@string/calc"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <!-- Quick access Layout -->
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:weightSum="1">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!-- Name, rating, equipment, and level portion, to left of arrow-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".9"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+
+                    <TextView
+                        android:id="@+id/character_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="28sp" />
+
+
+                    <TextView
+                        android:id="@+id/character_rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/character_equipped"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/character_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".15">
+                    <!--  ImageView to Close Content View  -->
+                    <ImageView
+                        android:id="@+id/close_content_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@string/closeWindowDesc"
+                        android:src="@drawable/ic_black_left_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TableLayout
+                android:id="@+id/main_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp">
+
+
+                <!--Row one of titles-->
+                <TableRow>
+
+                    <TextView />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/hp"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/atk"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/spd"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/def"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/res"
+                        android:textColor="@android:color/black" />
+                </TableRow>
+
+                <!--Row 2 of Low stats -->
+                <TableRow>
+
+                    <TextView
+                        android:text="@string/low"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/hp_low"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/low_stat" />
+
+                    <TextView
+                        android:id="@+id/atk_low"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/low_stat" />
+
+                    <TextView
+                        android:id="@+id/spd_low"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/low_stat" />
+
+                    <TextView
+                        android:id="@+id/def_low"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/low_stat" />
+
+                    <TextView
+                        android:id="@+id/res_low"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/low_stat" />
+                </TableRow>
+                <!--Row 3 of Mid stats -->
+                <TableRow>
+
+                    <TextView
+                        android:text="@string/middle"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/hp_mid"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mid_stat" />
+
+                    <TextView
+                        android:id="@+id/atk_mid"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mid_stat" />
+
+                    <TextView
+                        android:id="@+id/spd_mid"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mid_stat" />
+
+                    <TextView
+                        android:id="@+id/def_mid"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mid_stat" />
+
+                    <TextView
+                        android:id="@+id/res_mid"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mid_stat" />
+                </TableRow>
+                <!--Row 4 of Mid stats -->
+                <TableRow>
+
+                    <TextView
+                        android:text="@string/high"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/hp_high"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/hi_stat" />
+
+                    <TextView
+                        android:id="@+id/atk_high"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/hi_stat" />
+
+                    <TextView
+                        android:id="@+id/spd_high"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/hi_stat" />
+
+                    <TextView
+                        android:id="@+id/def_high"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/hi_stat" />
+
+                    <TextView
+                        android:id="@+id/res_high"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/hi_stat" />
+                </TableRow>
+                <!--Row 5 of Recommended IV's -->
+                <TableRow>
+
+                    <TextView />
+
+                    <ImageView
+                        android:id="@+id/hp_rec"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/recommended_stat" />
+
+                    <ImageView
+                        android:id="@+id/atk_rec"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/recommended_stat" />
+
+                    <ImageView
+                        android:id="@+id/spd_rec"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/recommended_stat" />
+
+                    <ImageView
+                        android:id="@+id/def_rec"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/recommended_stat" />
+
+                    <ImageView
+                        android:id="@+id/res_rec"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/recommended_stat" />
+                </TableRow>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>
