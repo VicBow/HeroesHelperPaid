@@ -79,7 +79,8 @@
                         <Spinner
                             android:id="@+id/rating_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:backgroundTint="@color/text_color2"/>
                     </TableRow>
 
                     <TableRow>
@@ -94,7 +95,8 @@
                         <Spinner
                             android:id="@+id/color_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:backgroundTint="@color/text_color2"/>
                     </TableRow>
 
                     <TableRow>
@@ -109,7 +111,8 @@
                         <Spinner
                             android:id="@+id/name_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:backgroundTint="@color/text_color2"/>
                     </TableRow>
 
                     <TableRow>
@@ -124,7 +127,8 @@
                         <Spinner
                             android:id="@+id/weapon_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:backgroundTint="@color/text_color2"/>
                     </TableRow>
 
                 </TableLayout>
@@ -164,7 +168,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@android:color/black"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -175,7 +178,8 @@
                     android:checked="true"
                     android:text="@string/levelOne"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:buttonTint="@color/text_color2"/>
 
                 <RadioButton
                     android:id="@+id/radio_forty"
@@ -183,7 +187,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/levelForty"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:buttonTint="@color/text_color2"/>
             </RadioGroup>
 
             <!-- Button to view quick access -->
@@ -271,13 +276,13 @@
                         android:layout_alignParentTop="true"
                         android:contentDescription="@string/closeWindowDesc"
                         android:src="@drawable/ic_black_left_arrow" />
-
+<!--
                     <ImageView
                         android:id="@+id/build_view"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_below="@+id/close_content_view"
-                        android:src="@drawable/weapon" />
+                        android:src="@drawable/weapon" /> -->
                 </RelativeLayout>
             </LinearLayout>
 

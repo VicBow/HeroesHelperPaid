@@ -381,7 +381,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //mFloatingWidgetView.findViewById(R.id.open_activity_button).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.info_button).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.close_content_view).setOnClickListener(this);
-        mFloatingWidgetView.findViewById(R.id.build_view).setOnClickListener(this);
+        //mFloatingWidgetView.findViewById(R.id.build_view).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.close_build_view).setOnClickListener(this);
     }
 
@@ -424,11 +424,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 infoView.setVisibility(View.GONE);
                 expandedView.setVisibility(View.VISIBLE);
                 break;
-            case R.id.build_view:
+            /*case R.id.build_view:
                 //Close info view and open up the build view
                 infoView.setVisibility(View.GONE);
                 buildView.setVisibility(View.VISIBLE);
-                break;
+                break; */
             case R.id.close_build_view:
                 //Close build view and open info view
                 buildView.setVisibility(View.GONE);
