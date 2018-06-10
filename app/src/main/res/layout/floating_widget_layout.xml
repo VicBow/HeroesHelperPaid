@@ -79,8 +79,8 @@
                         <Spinner
                             android:id="@+id/rating_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center"
-                            android:backgroundTint="@color/text_color2"/>
+                            android:backgroundTint="@color/text_color2"
+                            android:textAlignment="center" />
                     </TableRow>
 
                     <TableRow>
@@ -95,8 +95,8 @@
                         <Spinner
                             android:id="@+id/color_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center"
-                            android:backgroundTint="@color/text_color2"/>
+                            android:backgroundTint="@color/text_color2"
+                            android:textAlignment="center" />
                     </TableRow>
 
                     <TableRow>
@@ -111,8 +111,8 @@
                         <Spinner
                             android:id="@+id/name_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center"
-                            android:backgroundTint="@color/text_color2"/>
+                            android:backgroundTint="@color/text_color2"
+                            android:textAlignment="center" />
                     </TableRow>
 
                     <TableRow>
@@ -127,8 +127,8 @@
                         <Spinner
                             android:id="@+id/weapon_spinner"
                             android:layout_weight="1"
-                            android:textAlignment="center"
-                            android:backgroundTint="@color/text_color2"/>
+                            android:backgroundTint="@color/text_color2"
+                            android:textAlignment="center" />
                     </TableRow>
 
                 </TableLayout>
@@ -175,20 +175,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
+                    android:buttonTint="@color/text_color2"
                     android:checked="true"
                     android:text="@string/levelOne"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:buttonTint="@color/text_color2"/>
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/radio_forty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/text_color2"
                     android:text="@string/levelForty"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:buttonTint="@color/text_color2"/>
+                    android:textSize="20sp" />
             </RadioGroup>
 
             <!-- Button to view quick access -->
@@ -215,76 +215,67 @@
             android:weightSum="1">
 
 
+            <!--  ImageView to Close Content View  -->
+            <ImageView
+                android:id="@+id/close_content_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:contentDescription="@string/closeWindowDesc"
+                android:src="@drawable/ic_black_left_arrow" />
+
+
+            <TextView
+                android:id="@+id/character_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="28sp" />
+
+
+            <!--
+                                <ImageView
+                                    android:id="@+id/build_view"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_below="@+id/close_content_view"
+                                    android:src="@drawable/weapon" /> -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
-                <!-- Name, rating, equipment, and level portion, to left of arrow-->
-                <LinearLayout
+                <TextView
+                    android:id="@+id/character_rating"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".9"
-                    android:orientation="vertical"
-                    android:weightSum="1">
+                    android:layout_weight=".333"
+                    android:gravity="start"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
 
-
-                    <TextView
-                        android:id="@+id/character_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
-
-
-                    <TextView
-                        android:id="@+id/character_rating"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/character_equipped"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/character_level"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <RelativeLayout
+                <TextView
+                    android:id="@+id/character_equipped"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".15">
-                    <!--  ImageView to Close Content View  -->
-                    <ImageView
-                        android:id="@+id/close_content_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:contentDescription="@string/closeWindowDesc"
-                        android:src="@drawable/ic_black_left_arrow" />
-<!--
-                    <ImageView
-                        android:id="@+id/build_view"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_below="@+id/close_content_view"
-                        android:src="@drawable/weapon" /> -->
-                </RelativeLayout>
+                    android:layout_weight=".333"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/character_level"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".333"
+                    android:gravity="right"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
             </LinearLayout>
+
 
             <TableLayout
                 android:id="@+id/main_table"
@@ -293,6 +284,10 @@
                 android:paddingEnd="5dp"
                 android:paddingStart="5dp">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/text_color2" />
 
                 <!--Row one of titles-->
                 <TableRow>
@@ -441,7 +436,20 @@
                         android:gravity="center"
                         android:textColor="@color/hi_stat" />
                 </TableRow>
-                <!--Row 5 of Recommended IV's -->
+
+                <!--Row 5 -->
+                <TableRow>
+
+                    <TextView
+                        android:layout_span="5"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/recommended"
+                        android:textColor="@android:color/black" />
+
+                </TableRow>
+
+                <!--Row 6 of Recommended IV's -->
                 <TableRow>
 
                     <TextView />
@@ -512,7 +520,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="Recommended Builds"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </LinearLayout>
                 <!--  ImageView to Close Build View  -->
                 <ImageView
@@ -545,9 +553,10 @@
 
                     <TableRow android:padding="5dp">
 
-                        <Button android:text="Build 1"
+                        <Button
+                            android:layout_marginEnd="5dp"
                             android:background="@drawable/build_button_active"
-                            android:layout_marginEnd="5dp"/>
+                            android:text="Build 1" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -562,9 +571,10 @@
 
                     <TableRow android:padding="5dp">
 
-                        <Button android:text="Build 2"
+                        <Button
+                            android:layout_marginEnd="5dp"
                             android:background="@drawable/build_button_inactive"
-                            android:layout_marginEnd="5dp"/>
+                            android:text="Build 2" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -579,9 +589,10 @@
 
                     <TableRow android:padding="5dp">
 
-                        <Button android:text="Build 3"
+                        <Button
+                            android:layout_marginEnd="5dp"
                             android:background="@drawable/build_button_inactive"
-                            android:layout_marginEnd="5dp"/>
+                            android:text="Build 3" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -610,11 +621,11 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
-                            android:src="@drawable/weapon"/>
+                            android:src="@drawable/weapon" />
 
                         <TextView
                             android:layout_gravity="center_vertical"
-                            android:text="Life and Death 3/\nSwift Sparrow 2"/>
+                            android:text="Life and Death 3/\nSwift Sparrow 2" />
                     </TableRow>
 
                     <TableRow android:padding="5dp">

@@ -37,7 +37,7 @@
     <string name="levelForty">Level 40</string>
     <string name="closeWindowDesc">Close current window</string>
     <string name="feedbackHint">Your Message</string>
-    <string name="recommended">Recommended IV\'s</string>
+    <string name="recommended">Recommended IV\'s:</string>
     <string name="recommended_stat">Recommended IV</string>
 
     <string-array name="rating_stars">
