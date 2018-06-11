@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#135CE4</color>
     <color name="colorAccent">#DFF9F2</color>
     <color name="text_color">#3838E4</color>
-    <color name="text_color2">#090936</color>
+    <color name="text_color2">#000</color>
     <color name="low_stat">#ff0000</color>
     <color name="mid_stat">#ffd700</color>
     <color name="hi_stat">#008000</color>
