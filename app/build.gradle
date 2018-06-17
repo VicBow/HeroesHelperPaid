@@ -6,7 +6,7 @@ android {
         applicationId "motivationalapps.heroeshelperPaid"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 11
+        versionCode 13
         versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
