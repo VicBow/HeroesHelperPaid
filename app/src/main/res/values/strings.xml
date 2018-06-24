@@ -8,7 +8,7 @@
         y is for any design change
         z is for content changes, corrections
     -->
-    <string name="last_updated">Last Updated: 11 Jun 2018 \nv2.5.11</string>
+    <string name="last_updated">Last Updated: 22 Jun 2018 \nv2.5.11</string>
 
     <string name="feedback">Submit Feedback</string>
     <string name="title_send_feedback">Send Feedback</string>
@@ -39,6 +39,13 @@
     <string name="feedbackHint">Your Message</string>
     <string name="recommended">Recommended IV\'s:</string>
     <string name="recommended_stat">Recommended IV</string>
+    <string name="settings">Settings</string>
+    <string name="themes">Themes:</string>
+    <string name="light_theme">Light</string>
+    <string name="dark_theme">Dark</string>
+    <string name="theme_title">Enable Dark Mode</string>
+    <string name="theme_summary">Switch to a Dark Theme</string>
+    <string name="action_settings">Settings</string>
 
     <string-array name="rating_stars">
         <item>&#9733; &#9733; &#9733; &#9733; &#9733;</item>
@@ -63,6 +70,35 @@
         <item>#E6E8FA</item>
         <item>#8C7853</item>
     </string-array>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -1,12 +1,17 @@
 package motivationalapps.heroeshelperPaid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,12 +20,20 @@ public class MainActivity extends AppCompatActivity {
     private static final int DRAW_OVER_OTHER_APP_PERMISSION_REQUEST_CODE = 1222;
     View mView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean theme = sharedPref.getBoolean(SettingsActivity.KEY_PREF_THEME, false);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mView = this.getWindow().getDecorView().getRootView();
+        RelativeLayout mainView = mView.findViewById(R.id.activity_main);
+        if (!theme)
+            mainView.setBackgroundColor(getResources().getColor(R.color.background_light));
+        else
+            mainView.setBackgroundColor(getResources().getColor(R.color.background_dark));
     }
 
     /*  start floating widget service  */
@@ -69,5 +82,33 @@ public class MainActivity extends AppCompatActivity {
     public void sendFeedback(View view) {
         Intent intent = new Intent(getBaseContext(), Feedback.class);
         startActivity(intent);
+    }
+
+    public void settings(View view) {
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

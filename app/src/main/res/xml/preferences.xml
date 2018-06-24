@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Add setting options here!! -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.preference.SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="theme_switch"
+        android:summary="@string/theme_summary"
+        android:title="@string/theme_title" />
+</PreferenceScreen>

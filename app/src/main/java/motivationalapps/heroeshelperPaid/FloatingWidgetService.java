@@ -3,6 +3,7 @@ package motivationalapps.heroeshelperPaid;
 import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -91,6 +93,9 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     private int x_init_cord, y_init_cord, x_init_margin, y_init_margin;
 
+    Boolean theme;
+    int spinnerNum;
+    SharedPreferences sharedPref;
 
     //Variable to check if the Floating widget view is on left side or in right side
     // initially we are displaying Floating widget view to Left side so set it to true
@@ -107,6 +112,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     @Override
     public void onCreate() {
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        theme = sharedPref.getBoolean(SettingsActivity.KEY_PREF_THEME, false);
+        if (!theme) spinnerNum = R.layout.spinner_item;
+        else spinnerNum = R.layout.spinner_item_dark;
+
         super.onCreate();
 
 
@@ -413,6 +423,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 break;
             */
             case R.id.info_button:
+                setColorScheme();
                 //Close the expanded view and make the infoView visible and then set the character info for display
                 expandedView.setVisibility(View.GONE);
                 infoView.setVisibility(View.VISIBLE);
@@ -420,6 +431,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 break;
 
             case R.id.close_content_view:
+                setColorScheme();
                 //Close the info view and open up the expanded view
                 infoView.setVisibility(View.GONE);
                 expandedView.setVisibility(View.VISIBLE);
@@ -473,6 +485,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     /*  on Floating widget click show expanded view  */
     private void onFloatingWidgetClick() {
         if (isViewCollapsed()) {
+            setColorScheme();
             //when clicked, the collapsed view image will go away and the expanded view opens up
             collapsedView.setVisibility(View.GONE);
             expandedView.setVisibility(View.VISIBLE);
@@ -571,22 +584,22 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
             //Rating Star Spinner
             ratingSpinner = expandedView.findViewById(R.id.rating_spinner);
-            ratingAdapter = ArrayAdapter.createFromResource(this, R.array.rating_stars, R.layout.spinner_item);
+            ratingAdapter = ArrayAdapter.createFromResource(this, R.array.rating_stars, spinnerNum);
             ratingSpinner.setAdapter(ratingAdapter);
 
             //Weapon equipped Spinner
             weaponSpinner = expandedView.findViewById(R.id.weapon_spinner);
-            weaponAdapter = ArrayAdapter.createFromResource(this, R.array.weapons, R.layout.spinner_item);
+            weaponAdapter = ArrayAdapter.createFromResource(this, R.array.weapons, spinnerNum);
             weaponSpinner.setAdapter(weaponAdapter);
 
             //Color Spinner
             colorSpinner = expandedView.findViewById(R.id.color_spinner);
-            colorAdapter = ArrayAdapter.createFromResource(this, R.array.colors, R.layout.spinner_item);
+            colorAdapter = ArrayAdapter.createFromResource(this, R.array.colors, spinnerNum);
             colorSpinner.setAdapter(colorAdapter);
 
             //Hero Spinner
             heroSpinner = expandedView.findViewById(R.id.name_spinner);
-            heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fiveStarBlueList);
+            heroAdapter = new ArrayAdapter<>(this,spinnerNum, fiveStarBlueList);
             heroSpinner.setAdapter(heroAdapter);
         }
 
@@ -682,44 +695,44 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         if (rating == 5) {
             switch (color) {
                 case "blue":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fiveStarBlueList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarBlueList);
                     break;
                 case "colorless":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fiveStarColorlessList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarColorlessList);
                     break;
                 case "green":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fiveStarGreenList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarGreenList);
                     break;
                 case "red":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fiveStarRedList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarRedList);
             }
         } else if (rating == 4) {
             switch (color) {
                 case "blue":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fourStarBlueList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarBlueList);
                     break;
                 case "colorless":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fourStarColorlessList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarColorlessList);
                     break;
                 case "green":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fourStarGreenList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarGreenList);
                     break;
                 case "red":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, fourStarRedList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarRedList);
             }
         } else {
             switch (color) {
                 case "blue":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, threeStarBlueList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarBlueList);
                     break;
                 case "colorless":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, threeStarColorlessList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarColorlessList);
                     break;
                 case "green":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, threeStarGreenList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarGreenList);
                     break;
                 case "red":
-                    heroAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, threeStarRedList);
+                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarRedList);
             }
         }
         heroSpinner.setAdapter(heroAdapter);
@@ -1083,6 +1096,98 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         resHi = infoView.findViewById(R.id.res_high);
     }
 
+    private void setColorScheme() {
+        theme = sharedPref.getBoolean(SettingsActivity.KEY_PREF_THEME, false);
+        ImageView brandImage = mFloatingWidgetView.findViewById(R.id.brand_image);
+        ImageView minimizeImage = mFloatingWidgetView.findViewById(R.id.close_expanded_view);
+        TextView nameTextView = mFloatingWidgetView.findViewById(R.id.name);
+        TextView ratingTextView = mFloatingWidgetView.findViewById(R.id.rating);
+        TextView weaponTextView = mFloatingWidgetView.findViewById(R.id.weapon);
+        TextView colorTextView = mFloatingWidgetView.findViewById(R.id.color);
+        RadioButton levelOne = mFloatingWidgetView.findViewById(R.id.radio_one);
+        RadioButton levelForty = mFloatingWidgetView.findViewById(R.id.radio_forty);
+        TextView hpTitle = mFloatingWidgetView.findViewById(R.id.hp_title);
+        TextView spdTitle = mFloatingWidgetView.findViewById(R.id.spd_title);
+        TextView atkTitle = mFloatingWidgetView.findViewById(R.id.atk_title);
+        TextView defTitle = mFloatingWidgetView.findViewById(R.id.def_title);
+        TextView resTitle = mFloatingWidgetView.findViewById(R.id.res_title);
+        TextView lowTitle = mFloatingWidgetView.findViewById(R.id.low_title);
+        TextView medTitle = mFloatingWidgetView.findViewById(R.id.mid_title);
+        TextView highTitle = mFloatingWidgetView.findViewById(R.id.high_title);
+        TextView recTitle = mFloatingWidgetView.findViewById(R.id.recommended_title);
+        ImageView brandImage2 = mFloatingWidgetView.findViewById(R.id.brand_image_info);
+        ImageView backArrowImage = mFloatingWidgetView.findViewById(R.id.close_content_view);
+
+        if(!theme) {
+            //Set all the colors for a light theme
+            expandedView.setBackground(getResources().getDrawable(R.drawable.background));
+            brandImage.setImageDrawable(getResources().getDrawable(R.drawable.black_brand));
+            minimizeImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_minimize));
+            backArrowImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_black_left_arrow));
+            nameTextView.setTextColor(getResources().getColor(R.color.text_color_light));
+            ratingTextView.setTextColor(getResources().getColor(R.color.text_color_light));
+            weaponTextView.setTextColor(getResources().getColor(R.color.text_color_light));
+            colorTextView.setTextColor(getResources().getColor(R.color.text_color_light));
+            levelOne.setTextColor(getResources().getColor(R.color.text_color_light));
+            levelForty.setTextColor(getResources().getColor(R.color.text_color_light));
+
+            infoView.setBackground(getResources().getDrawable(R.drawable.background));
+            characterNameInfo.setTextColor(getResources().getColor(R.color.text_color_light));
+            characterEquippedInfo.setTextColor(getResources().getColor(R.color.text_color_light));
+            characterLevelInfo.setTextColor(getResources().getColor(R.color.text_color_light));
+            //characterRatingInfo.setTextColor(getResources().getColor(R.color.text_color_light));
+            hpTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            spdTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            atkTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            resTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            defTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            lowTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            medTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            highTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            hpMid.setTextColor(getResources().getColor(R.color.text_color_light));
+            spdMid.setTextColor(getResources().getColor(R.color.text_color_light));
+            atkMid.setTextColor(getResources().getColor(R.color.text_color_light));
+            resMid.setTextColor(getResources().getColor(R.color.text_color_light));
+            defMid.setTextColor(getResources().getColor(R.color.text_color_light));
+            recTitle.setTextColor(getResources().getColor(R.color.text_color_light));
+            brandImage2.setImageDrawable(getResources().getDrawable(R.drawable.black_brand_2));
+        }
+        else {
+            //Set all the colors for a dark theme
+            expandedView.setBackground(getResources().getDrawable(R.drawable.background_dark));
+            brandImage.setImageDrawable(getResources().getDrawable(R.drawable.yellow_brand));
+            brandImage2.setImageDrawable(getResources().getDrawable(R.drawable.yellow_brand_2));
+            backArrowImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_white_left_arrow));
+            minimizeImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_minimize_white));
+            nameTextView.setTextColor(getResources().getColor(R.color.text_color_dark));
+            ratingTextView.setTextColor(getResources().getColor(R.color.text_color_dark));
+            weaponTextView.setTextColor(getResources().getColor(R.color.text_color_dark));
+            colorTextView.setTextColor(getResources().getColor(R.color.text_color_dark));
+            levelOne.setTextColor(getResources().getColor(R.color.text_color_dark));
+            levelForty.setTextColor(getResources().getColor(R.color.text_color_dark));
+
+            infoView.setBackground(getResources().getDrawable(R.drawable.background_dark));
+            characterNameInfo.setTextColor(getResources().getColor(R.color.text_color_dark));
+            characterEquippedInfo.setTextColor(getResources().getColor(R.color.text_color_dark));
+            characterLevelInfo.setTextColor(getResources().getColor(R.color.text_color_dark));
+            //characterRatingInfo.setTextColor(getResources().getColor(R.color.text_color_dark));
+            hpTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            spdTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            atkTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            resTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            defTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            lowTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            medTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            highTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            hpMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
+            spdMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
+            atkMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
+            resMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
+            defMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
+            recTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+
+        }
+    }
 
     @Override
     public void onDestroy() {

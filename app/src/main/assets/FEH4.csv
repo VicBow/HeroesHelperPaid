@@ -46,6 +46,7 @@ Clarisse,Clarisse,Sniper in the Dark,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,17,7,8,5,
 Clive,Clive,Idealistic Knight,Blue,Lance,n/a,n/a,n/a,n/a,n/a,18,9,5,8,3,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,42,31,23,30,17,n/a,n/a,n/a,n/a,n/a,0,11,0,0,0,1,neutral,neutral,neutral,neutral,neutral
 Cordelia,Cordelia,Knight Paragon,Blue,Lance,16,8,8,3,4,17,9,9,4,5,18,10,10,5,6,34,30,30,17,20,37,33,33,20,23,40,36,36,23,26,0,5,-5,0,0,1,bane,boon,boon,neutral,bane
 Cordelia (Bride),Cordelia,Perfect Bride,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,bane
+Cordelia (Summer),Cordelia,Knight Paradise,Blue,Lance,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Corrin (Female),Corrin,Fateful Princess,Blue,Breath,17,7,4,7,4,18,8,5,8,5,19,9,6,9,6,35,23,28,29,16,38,26,31,32,19,41,29,34,35,22,0,9,0,0,0,1,bane,boon,boon,neutral,neutral
 Corrin (Male),Corrin,Fateful Prince,Red,Sword,18,7,7,4,3,19,8,8,5,4,20,9,9,6,5,36,27,27,22,19,39,30,30,25,22,42,33,33,28,25,0,11,0,0,0,1,bane,boon,boon,neutral,bane
 Corrin (New Year),Corrin,Enjoying Tradition,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,17,8,8,5,4,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,35,30,28,31,16,n/a,n/a,n/a,n/a,n/a,0,8,0,0,0,1,neutral,neutral,neutral,neutral,neutral
@@ -100,6 +101,7 @@ Ike (Brave),Ike,Brave Mercendary,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n
 Ike (Legendary),Ike,Vanguard Legend,Red,Sword,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,boon,bane
 Inigo,Inigo,Indigo Dancer,Green,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,neutral,bane
 Innes,Innes,Royal Strategician,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,neutral
+Innes (Summer),Innes,Flawless Form,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Ishtar,Ishtar,Thunder Goddess,Blue,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,bane,bane
 Jaffar,Jaffar,Angel of Death,Colorless,Dagger,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,neutral,bane,bane
 Jagen,Jagen,Veteran Knight,Blue,Lance,18,7,5,6,10,19,8,6,7,11,20,9,7,8,12,32,23,19,20,30,35,26,22,23,33,38,29,25,26,36,0,11,0,0,0,1,neutral,boon,neutral,bane,neutral
@@ -121,7 +123,7 @@ Klein,Klein,Silver Nobleman,Colorless,Bow,16,8,6,3,3,17,9,7,4,4,18,10,8,5,5,34,2
 Lachesis,Lachesis,Ligonheart's Sister,Colorless,Staff,15,4,7,3,7,16,5,8,4,8,17,6,9,5,9,33,26,21,17,25,36,29,24,20,28,39,32,27,23,31,0,4,0,0,0,1,bane,boon,neutral,neutral,neutral
 L'Arachel,L'Arachel,Princess of Light,Blue,Tome,14,8,6,2,5,15,9,7,3,6,16,10,8,4,7,28,28,26,12,25,31,31,29,15,28,34,34,32,18,31,0,9,0,0,0,1,neutral,boon,boon,bane,neutral
 Laslow,Laslow,Dancing Duelist,Red,Sword,18,8,6,4,3,19,9,7,5,4,20,10,8,6,5,38,30,22,24,17,41,33,25,27,20,44,36,28,30,23,0,11,0,0,0,1,neutral,boon,boon,boon,bane
-Legault,Legault,The Hurricane,Colorless,Dagger,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
+Legault,Legault,The Hurricane,Colorless,Dagger,15,6,9,5,2,16,7,10,6,3,17,8,11,7,4,33,26,33,19,14,36,29,36,22,17,39,32,39,25,20,0,8,0,0,0,1,neutral,boon,boon,neutral,bane
 Legion,Legion,Masked Maniac,Green,Axe,n/a,n/a,n/a,n/a,n/a,19,10,9,4,2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,43,34,33,20,16,n/a,n/a,n/a,n/a,n/a,0,10,0,0,0,1,neutral,neutral,neutral,neutral,neutral
 Leif,Leif,Prince of Leonster,Red,Sword,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,neutral,bane
 Lene,Lene,Yearning Dancer,Red,Sword,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,neutral,neutral
@@ -175,6 +177,7 @@ Ninian,Ninian,Oracle of Destiny,Blue,Breath,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,
 Ninian (Bride),Ninian,Bright-Eyed Bride,Blue,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,bane,neutral
 Nino,Nino,Pious Mage,Green,Tome,14,6,9,2,5,15,7,10,3,6,16,8,11,4,7,28,28,31,14,21,31,31,34,17,24,34,34,37,20,27,0,9,0,0,0,1,neutral,boon,boon,bane,neutral
 Nino (SF),Nino,Pale Flower,Green,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
+Noire (Summer),Noire,Shade Seeker,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Nowi,Nowi,Eternal Youth,Blue,Breath,15,5,3,5,3,16,6,4,6,4,17,7,5,7,5,39,29,21,25,21,42,32,24,28,24,45,35,27,31,27,0,7,0,0,0,1,bane,boon,boon,boon,neutral
 Nowi (Halloween),Nowi,Eternal Witch,Red,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,neutral
 Oboro,Oboro,Fierce Fighter,Blue,Lance,16,7,5,8,3,17,8,6,9,4,18,9,7,10,5,34,27,21,30,19,37,30,24,33,22,40,33,27,36,25,0,8,0,0,0,1,neutral,boon,bane,boon,boon
@@ -241,6 +244,7 @@ Takumi,Takumi,Wild Card,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,17,8,7,5,4,n/a,n/a,n/a
 Takumi (Fallen),Takumi,Empty Vessel,Colorless,Bow,n/a,n/a,n/a,n/a,n/a,14,9,10,5,4,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,34,29,32,23,22,n/a,n/a,n/a,n/a,n/a,0,9,0,0,0,1,neutral,neutral,neutral,neutral,neutral
 Takumi (New Year),Takumi,Prince of Soup,Colorless,Dagger,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,neutral
 Tana,Tana,Winged Princess,Blue,Lance,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,neutral,bane
+Tana (Summer),Tana,Noble and Nimble,Red,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Tharja,Tharja,Dark Shadow,Red,Tome,15,7,7,4,3,16,8,8,5,4,17,9,9,6,5,33,27,29,18,15,36,30,32,21,18,39,33,35,24,21,0,9,0,0,0,1,neutral,boon,boon,bane,bane
 Tharja (Bride),Tharja,Obsessive Bride,Red,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,bane
 Tharja (Winter),Tharja,"""Normal Girl""",Red,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,bane,boon,boon
@@ -258,10 +262,6 @@ Xander (Spring),Xander,Spring Prince,Blue,Lance,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,
 Xander (Summer),Xander,Student Swimmer,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,boon,boon,neutral,boon,bane
 Zelgius,Zelgius,Jet-Black General,Red,Sword,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Zephiel,Zephiel,The Liberator,Red,Sword,n/a,n/a,n/a,n/a,n/a,24,9,2,12,4,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,52,33,14,36,22,n/a,n/a,n/a,n/a,n/a,0,11,0,0,0,1,neutral,neutral,neutral,neutral,neutral
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,

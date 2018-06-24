@@ -26,7 +26,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/icon"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"/>
 
             <!--   Close button to close Floating Widget View  -->
             <ImageView
@@ -51,6 +51,13 @@
             android:orientation="vertical"
             android:visibility="gone">
 
+            <ImageView
+                android:id="@+id/brand_image"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:src="@drawable/black_brand"
+                tools:ignore="ContentDescription"/>
+
             <!-- Horizontal for options listed on left and close button on right -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,13 +80,12 @@
                             android:id="@+id/rating"
                             android:gravity="center_vertical"
                             android:text="@string/rating"
-                            android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
                         <Spinner
                             android:id="@+id/rating_spinner"
                             android:layout_weight="1"
-                            android:backgroundTint="@color/text_color2"
+                            android:backgroundTint="@color/colorPrimaryDark"
                             android:textAlignment="center" />
                     </TableRow>
 
@@ -89,13 +95,12 @@
                             android:id="@+id/color"
                             android:gravity="center_vertical"
                             android:text="@string/color"
-                            android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
                         <Spinner
                             android:id="@+id/color_spinner"
                             android:layout_weight="1"
-                            android:backgroundTint="@color/text_color2"
+                            android:backgroundTint="@color/colorPrimaryDark"
                             android:textAlignment="center" />
                     </TableRow>
 
@@ -105,13 +110,12 @@
                             android:id="@+id/name"
                             android:gravity="center_vertical"
                             android:text="@string/name"
-                            android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
                         <Spinner
                             android:id="@+id/name_spinner"
                             android:layout_weight="1"
-                            android:backgroundTint="@color/text_color2"
+                            android:backgroundTint="@color/colorPrimaryDark"
                             android:textAlignment="center" />
                     </TableRow>
 
@@ -121,13 +125,12 @@
                             android:id="@+id/weapon"
                             android:gravity="center_vertical"
                             android:text="@string/weapon"
-                            android:textColor="@android:color/black"
                             android:textSize="18sp" />
 
                         <Spinner
                             android:id="@+id/weapon_spinner"
                             android:layout_weight="1"
-                            android:backgroundTint="@color/text_color2"
+                            android:backgroundTint="@color/colorPrimaryDark"
                             android:textAlignment="center" />
                     </TableRow>
 
@@ -175,19 +178,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
-                    android:buttonTint="@color/text_color2"
+                    android:buttonTint="@color/colorPrimaryDark"
                     android:checked="true"
                     android:text="@string/levelOne"
-                    android:textColor="@android:color/black"
                     android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/radio_forty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/text_color2"
+                    android:buttonTint="@color/colorPrimaryDark"
                     android:text="@string/levelForty"
-                    android:textColor="@android:color/black"
                     android:textSize="20sp" />
             </RadioGroup>
 
@@ -225,7 +226,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:gravity="center"
-                    android:textColor="@android:color/black"
                     android:textSize="28sp" />
 
 
@@ -236,8 +236,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_alignParentEnd="true"
-                    android:contentDescription="@string/closeWindowDesc"
-                    android:src="@drawable/ic_black_left_arrow" />
+                    android:contentDescription="@string/closeWindowDesc" />
 
 
                 <!--
@@ -262,7 +261,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".333"
                     android:gravity="start"
-                    android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -271,7 +269,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".333"
                     android:gravity="center"
-                    android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -280,7 +277,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".333"
                     android:gravity="end"
-                    android:textColor="@android:color/black"
                     android:textSize="15sp" />
             </LinearLayout>
 
@@ -293,9 +289,10 @@
                 android:paddingStart="5dp">
 
                 <View
+                    android:id="@+id/top_line"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@color/text_color2" />
+                    android:background="@color/colorPrimaryDark"/>
 
                 <!--Row one of titles-->
                 <TableRow>
@@ -303,42 +300,42 @@
                     <TextView />
 
                     <TextView
+                        android:id="@+id/hp_title"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/hp"
-                        android:textColor="@android:color/black" />
+                        android:text="@string/hp"/>
 
                     <TextView
+                        android:id="@+id/atk_title"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/atk"
-                        android:textColor="@android:color/black" />
+                        android:text="@string/atk"/>
 
                     <TextView
+                        android:id="@+id/spd_title"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/spd"
-                        android:textColor="@android:color/black" />
+                        android:text="@string/spd" />
 
                     <TextView
+                        android:id="@+id/def_title"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/def"
-                        android:textColor="@android:color/black" />
+                        android:text="@string/def"/>
 
                     <TextView
+                        android:id="@+id/res_title"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/res"
-                        android:textColor="@android:color/black" />
+                        android:text="@string/res"/>
                 </TableRow>
 
                 <!--Row 2 of Low stats -->
                 <TableRow>
 
                     <TextView
-                        android:text="@string/low"
-                        android:textColor="@android:color/black" />
+                        android:id="@+id/low_title"
+                        android:text="@string/low" />
 
                     <TextView
                         android:id="@+id/hp_low"
@@ -374,45 +371,40 @@
                 <TableRow>
 
                     <TextView
-                        android:text="@string/middle"
-                        android:textColor="@android:color/black" />
+                        android:id="@+id/mid_title"
+                        android:text="@string/middle" />
 
                     <TextView
                         android:id="@+id/hp_mid"
                         android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/mid_stat" />
+                        android:gravity="center"/>
 
                     <TextView
                         android:id="@+id/atk_mid"
                         android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/mid_stat" />
+                        android:gravity="center"/>
 
                     <TextView
                         android:id="@+id/spd_mid"
                         android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/mid_stat" />
+                        android:gravity="center"/>
 
                     <TextView
                         android:id="@+id/def_mid"
                         android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/mid_stat" />
+                        android:gravity="center"/>
 
                     <TextView
                         android:id="@+id/res_mid"
                         android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/mid_stat" />
+                        android:gravity="center" />
                 </TableRow>
                 <!--Row 4 of Mid stats -->
                 <TableRow>
 
                     <TextView
-                        android:text="@string/high"
-                        android:textColor="@android:color/black" />
+                        android:id="@+id/high_title"
+                        android:text="@string/high"/>
 
                     <TextView
                         android:id="@+id/hp_high"
@@ -449,18 +441,23 @@
                 <TableRow>
 
                     <TextView
+                        android:id="@+id/recommended_title"
                         android:layout_span="5"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/recommended"
-                        android:textColor="@android:color/black" />
+                        android:text="@string/recommended"/>
 
                 </TableRow>
 
                 <!--Row 6 of Recommended IV's -->
                 <TableRow>
 
-                    <TextView />
+                    <ImageView
+                        android:id="@+id/brand_image_info"
+                        android:layout_height="24dp"
+                        android:layout_width="24dp"
+                        android:src="@drawable/black_brand_2"
+                        tools:ignore="ContentDescription"/>
 
                     <ImageView
                         android:id="@+id/hp_rec"
@@ -606,7 +603,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
-                            android:src="@drawable/skills" />
+                            android:src="@drawable/special" />
 
                         <TextView
                             android:layout_gravity="center_vertical"
