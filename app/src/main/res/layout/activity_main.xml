@@ -32,6 +32,18 @@
         android:textSize="20sp"
         android:layout_below="@+id/create_floating_widget"/>-->
 
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="settings"
+        android:background="@drawable/button_background"
+        android:text="@string/settings"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:layout_below="@+id/create_floating_widget"/>
+
     <TextView
         style="@android:style/TextAppearance.DeviceDefault.Small"
         android:layout_width="match_parent"

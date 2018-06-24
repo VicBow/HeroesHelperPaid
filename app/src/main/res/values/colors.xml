@@ -2,13 +2,14 @@
 <resources>
     <color name="colorPrimary">#ffd700</color>
     <color name="colorPrimaryDark">#135CE4</color>
-    <color name="colorAccent">#DFF9F2</color>
+    <color name="colorAccent">#135CE4</color>
     <color name="text_color_dark">#fff</color>
     <color name="text_color_light">#000</color>
     <color name="low_stat">#ff0000</color>
     <color name="mid_stat_yellow">#ffd700</color>
     <color name="mid_stat_black">#000</color>
     <color name="hi_stat">#008000</color>
+    <color name="hi_stat_dark">#00b300</color>
     <color name="gold">#FFD700</color>
     <color name="silver">#E6E8FA</color>
     <color name="bronze">#8C7853</color>

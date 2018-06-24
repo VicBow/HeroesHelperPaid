@@ -739,6 +739,9 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     }
 
     private void setCharacterStats() {
+        int positiveImage;
+        if (!theme) positiveImage = R.drawable.ic_outline_add_circle_24px;
+        else positiveImage = R.drawable.ic_outline_add_circle_24px_dark;
         int diff;
         String newValue;
         String[] character = fiveHeroesList.get(index); //Default to to five star heroes
@@ -763,7 +766,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //Set HP bane/boon
         switch(character[41]) {
             case "boon":
-                hpRec.setImageResource(R.drawable.ic_outline_add_circle_24px);
+                hpRec.setImageResource(positiveImage);
                 break;
             case "bane":
                 hpRec.setImageResource(R.drawable.ic_outline_remove_circle_24px);
@@ -774,7 +777,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //Set ATK bane/boon
         switch(character[42]) {
             case "boon":
-                atkRec.setImageResource(R.drawable.ic_outline_add_circle_24px);
+                atkRec.setImageResource(positiveImage);
                 break;
             case "bane":
                 atkRec.setImageResource(R.drawable.ic_outline_remove_circle_24px);
@@ -786,7 +789,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //Set SPD bane/boon
         switch(character[43]) {
             case "boon":
-                spdRec.setImageResource(R.drawable.ic_outline_add_circle_24px);
+                spdRec.setImageResource(positiveImage);
                 break;
             case "bane":
                 spdRec.setImageResource(R.drawable.ic_outline_remove_circle_24px);
@@ -798,7 +801,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //Set DEF bane/boon
         switch(character[44]) {
             case "boon":
-                defRec.setImageResource(R.drawable.ic_outline_add_circle_24px);
+                defRec.setImageResource(positiveImage);
                 break;
             case "bane":
                 defRec.setImageResource(R.drawable.ic_outline_remove_circle_24px);
@@ -810,7 +813,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //Set RES bane/boon
         switch(character[45]) {
             case "boon":
-                resRec.setImageResource(R.drawable.ic_outline_add_circle_24px);
+                resRec.setImageResource(positiveImage);
                 break;
             case "bane":
                 resRec.setImageResource(R.drawable.ic_outline_remove_circle_24px);
@@ -1151,6 +1154,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             defMid.setTextColor(getResources().getColor(R.color.text_color_light));
             recTitle.setTextColor(getResources().getColor(R.color.text_color_light));
             brandImage2.setImageDrawable(getResources().getDrawable(R.drawable.black_brand_2));
+            hpHi.setTextColor(getResources().getColor(R.color.hi_stat));
+            spdHi.setTextColor(getResources().getColor(R.color.hi_stat));
+            atkHi.setTextColor(getResources().getColor(R.color.hi_stat));
+            resHi.setTextColor(getResources().getColor(R.color.hi_stat));
+            defHi.setTextColor(getResources().getColor(R.color.hi_stat));
         }
         else {
             //Set all the colors for a dark theme
@@ -1185,6 +1193,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             resMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
             defMid.setTextColor(getResources().getColor(R.color.mid_stat_yellow));
             recTitle.setTextColor(getResources().getColor(R.color.text_color_dark));
+            hpHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
+            spdHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
+            atkHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
+            resHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
+            defHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
 
         }
     }
