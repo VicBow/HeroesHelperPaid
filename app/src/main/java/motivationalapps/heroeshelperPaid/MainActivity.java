@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,10 +31,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mView = this.getWindow().getDecorView().getRootView();
         RelativeLayout mainView = mView.findViewById(R.id.activity_main);
-        if (!theme)
+        TextView lastUpdated = mView.findViewById(R.id.last_updated);
+        if (!theme) {
             mainView.setBackgroundColor(getResources().getColor(R.color.background_light));
-        else
+            lastUpdated.setTextColor(getResources().getColor(R.color.text_color_light));
+        }
+        else {
             mainView.setBackgroundColor(getResources().getColor(R.color.background_dark));
+            lastUpdated.setTextColor(getResources().getColor(R.color.text_color_dark));
+        }
     }
 
     /*  start floating widget service  */

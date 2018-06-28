@@ -45,6 +45,7 @@
         android:layout_below="@+id/create_floating_widget"/>
 
     <TextView
+        android:id="@+id/last_updated"
         style="@android:style/TextAppearance.DeviceDefault.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
