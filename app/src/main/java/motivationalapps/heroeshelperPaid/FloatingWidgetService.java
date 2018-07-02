@@ -96,6 +96,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     Boolean theme;
     int spinnerNum;
     SharedPreferences sharedPref;
+    String transparentNum;
 
     //Variable to check if the Floating widget view is on left side or in right side
     // initially we are displaying Floating widget view to Left side so set it to true
@@ -116,6 +117,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         theme = sharedPref.getBoolean(SettingsActivity.KEY_PREF_THEME, false);
         if (!theme) spinnerNum = R.layout.spinner_item;
         else spinnerNum = R.layout.spinner_item_dark;
+
+        transparentNum = sharedPref.getString(SettingsActivity.KEY_PREF_TRANSPARENT, "1");
 
         super.onCreate();
 
@@ -239,9 +242,13 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 PixelFormat.TRANSLUCENT);
         addFloatingWidgetView(inflater);
 
+        changeTransparency();
+
         //method to implement the on click listeners
         implementClickListeners();
         implementTouchListenerToFloatingWidgetView();
+
+
     }
 
 
@@ -1200,6 +1207,12 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             defHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
 
         }
+    }
+
+    private void changeTransparency() {
+        //Toast.makeText(this, "The value the user chose is: " + transparentNum, Toast.LENGTH_LONG).show();
+        ImageView collapsedImage = mFloatingWidgetView.findViewById(R.id.collapsed_iv);
+        collapsedImage.setAlpha(Float.valueOf(transparentNum));
     }
 
     @Override

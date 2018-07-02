@@ -26,7 +26,8 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/icon"
-                tools:ignore="ContentDescription"/>
+                tools:ignore="ContentDescription"
+                android:alpha="1"/>
 
             <!--   Close button to close Floating Widget View  -->
             <ImageView
