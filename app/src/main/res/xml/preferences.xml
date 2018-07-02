@@ -2,19 +2,20 @@
 
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <SwitchPreference
+    <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="theme_switch"
         android:summary="@string/theme_summary"
         android:title="@string/theme_title" />
     <ListPreference
-        android:key="transparent_preference"
+        android:key="opaque_preference"
         android:title="@string/opacity"
         android:summary="@string/opacity_summary"
         android:inputType="number"
         android:entries="@array/opacity_array"
         android:entryValues="@array/opacity_values" />
-    <SwitchPreference
+
+    <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="hand_switch"
         android:summary="@string/hand_summary"
