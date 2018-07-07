@@ -1,7 +1,10 @@
 package motivationalapps.heroeshelperPaid;
 
 import android.annotation.TargetApi;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -11,6 +14,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.preference.PreferenceManager;
 import android.view.Gravity;
@@ -287,6 +291,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         //find id of the recommended build layout
         buildView = mFloatingWidgetView.findViewById(R.id.build_container);
+        //TODO:
         //generateNotification(this, "Testing Notification", "A summary", NOTIFICATION_ID);
         addTextViews();
 
@@ -377,7 +382,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                             y_cord_Destination = szWindow.y - (mFloatingWidgetView.getHeight() + barHeight);
                         }
 
-                        layoutParams.y = y_cord_Destination;
+                        //layoutParams.y = y_cord_Destination;
 
 
                         return true;
@@ -1220,11 +1225,20 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private void changeTransparency() {
         //Toast.makeText(this, "The value the user chose is: " + transparentNum, Toast.LENGTH_LONG).show();
         ImageView collapsedImage = mFloatingWidgetView.findViewById(R.id.collapsed_iv);
-        collapsedImage.setAlpha(Float.valueOf(transparentNum));
+        collapsedImage.setImageAlpha(Integer.parseInt(transparentNum));
     }
 
-    /*public static void generateNotification(Context context, String title, String message, int notificationId) {
+    public static void generateNotification(Context context, String title, String message, int notificationId) {
         int icon = R.drawable.icon;
+        Intent closeIntent = new Intent(context, ActionReceiver.class);
+        closeIntent.putExtra("close", "closeIcon");
+
+        Intent closeApp = new Intent(context, ActionReceiver.class);
+        closeApp.putExtra("close", "closeApp");
+
+        PendingIntent pCloseIcon = PendingIntent.getBroadcast(context,1,closeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pCloseApp = PendingIntent.getBroadcast(context, 2, closeApp, PendingIntent.FLAG_UPDATE_CURRENT);
+
 
         //get instance of notification manager
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1232,13 +1246,19 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 .setSmallIcon(icon)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_HIGH);
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .addAction(R.drawable.ic_close_black_24dp, "Close Icon", pCloseIcon)
+                .addAction(R.drawable.ic_close_black_24dp, "Close App", pCloseApp);
 
         Intent notificationIntent = new Intent(context, MainActivity.class);
         PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
         mBuilder.setContentIntent(intent);
         notificationManager.notify(notificationId, mBuilder.build());
-    }*/
+    }
+
+    public static void closeItem(String item) {
+
+    }
 
     @Override
     public void onDestroy() {

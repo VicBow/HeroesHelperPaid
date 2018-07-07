@@ -8,7 +8,7 @@
         y is for any design change
         z is for content changes, corrections
     -->
-    <string name="last_updated">Last Updated: 06 Jul 2018 \nv2.5.15</string>
+    <string name="last_updated">Last Updated: 06 Jul 2018 \nv3.5.15</string>
 
     <string name="feedback">Submit Feedback</string>
     <string name="title_send_feedback">Send Feedback</string>
@@ -85,11 +85,11 @@
     </string-array>
 
     <string-array name="opacity_values">
-        <item>.2</item>
-        <item>.4</item>
-        <item>.6</item>
-        <item>.8</item>
-        <item>1.0</item>
+        <item>25</item>
+        <item>75</item>
+        <item>125</item>
+        <item>175</item>
+        <item>255</item>
     </string-array>
 
 

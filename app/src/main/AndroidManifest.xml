@@ -25,6 +25,8 @@
             android:enabled="true"
             android:exported="false" />
 
+        <receiver android:name=".ActionReceiver"/>
+
         <!-- <activity android:name=".Feedback" /> -->
         <activity android:name=".SettingsActivity"
             android:label="Settings"

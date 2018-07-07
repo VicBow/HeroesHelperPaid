@@ -5,13 +5,13 @@
         android:key="theme_switch"
         android:summary="@string/theme_summary"
         android:title="@string/theme_title" />
-    <!--<ListPreference
+    <ListPreference
         android:key="transparent_preference"
         android:title="@string/opacity"
         android:summary="@string/opacity_summary"
         android:inputType="number"
         android:entries="@array/opacity_array"
-        android:entryValues="@array/opacity_values" />-->
+        android:entryValues="@array/opacity_values" />
 
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
