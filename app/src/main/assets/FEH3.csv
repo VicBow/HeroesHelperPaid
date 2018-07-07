@@ -33,7 +33,7 @@ Catria,Catria,Middle Whitewing,Blue,Lance,15,5,8,5,4,16,6,9,6,5,17,7,10,7,6,32,2
 Catria (Spring),Catria,Spring Whitewing,Blue,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,bane,neutral
 Cecilia,Cecilia,Eturian General,Green,Tome,15,6,4,3,5,16,7,5,4,6,17,8,6,5,7,30,25,19,16,22,33,28,22,19,25,36,31,25,22,28,0,6,0,0,0,1,bane,boon,neutral,neutral,neutral
 Celica,Celica,Caring Princess,Red,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,neutral
-Celica (Fallen),Celica,Imprisoned Soul,Red,Sword,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,bane,neutral
+Celica (Fallen),Celica,Imprisoned Soul,Red,Sword,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Charlotte,Charlotte,Money Maiden,Blue,Lance,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,boon,neutral,bane
 Cherche,Cherche,Wyvern Friend,Green,Axe,18,8,4,6,1,19,9,5,7,2,20,10,6,8,3,39,31,19,25,10,42,34,22,28,13,45,37,25,31,16,0,8,0,0,0,1,neutral,boon,bane,boon,bane
 Chrom,Chrom,Exalted Prince,Red,Sword,19,7,4,5,2,20,8,5,6,3,21,9,6,7,4,40,30,19,24,11,43,33,22,27,14,46,36,25,30,17,0,8,0,0,0,1,boon,boon,bane,boon,bane
@@ -91,7 +91,7 @@ Hardin,Hardin,Dark Emperor,Blue,Lance,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/
 Hawkeye,Hawkeye,Desert Guardian,Green,Axe,19,7,3,4,4,20,8,4,5,5,21,9,5,6,6,38,26,16,21,23,41,29,19,24,26,44,32,22,27,29,0,8,0,0,0,1,neutral,boon,bane,neutral,neutral
 Hector,Hector,General of Ostia,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,bane,boon,neutral
 Hector (LA),Hector,Just Here to Fight,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,bane,boon,neutral
-Hector (Legendary),Hector,Marquess of Ostia,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,neutral,boon,bane,boon,neutral
+Hector (Legendary),Hector,Marquess of Ostia,Green,Axe,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,bane,boon,neutral
 Henry,Henry,Twisted Mind,Red,Tome,17,4,3,6,4,18,5,4,7,5,19,6,5,8,6,38,17,16,25,19,41,20,19,28,22,44,23,22,31,25,0,6,0,0,0,1,neutral,boon,bane,boon,neutral
 Henry (Halloween),Henry,Happy Vampire,Green,Tome,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,#VALUE!,#VALUE!,#VALUE!,#VALUE!,#VALUE!,0,bane,boon,boon,neutral,bane
 Hinata,Hinata,Wild Samurai,Red,Sword,19,6,3,8,1,20,7,4,9,2,21,8,5,10,3,40,25,18,29,12,43,28,21,32,15,46,31,24,35,18,0,8,0,0,0,1,neutral,boon,bane,boon,bane

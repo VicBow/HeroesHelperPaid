@@ -6,7 +6,7 @@ android {
         applicationId "motivationalapps.heroeshelperPaid"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 21
+        versionCode 23
         versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

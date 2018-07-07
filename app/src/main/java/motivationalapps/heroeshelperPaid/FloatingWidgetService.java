@@ -24,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -98,6 +97,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     int spinnerNum;
     SharedPreferences sharedPref;
     String transparentNum;
+    public static int NOTIFICATION_ID = 1775;
 
     //Variable to check if the Floating widget view is on left side or in right side
     // initially we are displaying Floating widget view to Left side so set it to true
@@ -123,7 +123,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         hand = sharedPref.getBoolean(SettingsActivity.KEY_PREF_HAND, false);
 
         super.onCreate();
-
 
 
         //Set layout width to wrap so the layout can move around
@@ -288,6 +287,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         //find id of the recommended build layout
         buildView = mFloatingWidgetView.findViewById(R.id.build_container);
+        //generateNotification(this, "Testing Notification", "A summary", NOTIFICATION_ID);
         addTextViews();
 
     }
@@ -295,7 +295,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     //Commented out code to check for anything less than Honeycomb
     private void getWindowManagerDefaultDisplay() {
         //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2)
-            mWindowManager.getDefaultDisplay().getSize(szWindow);
+        mWindowManager.getDefaultDisplay().getSize(szWindow);
         /*else {
             int w = mWindowManager.getDefaultDisplay().getWidth();
             int h = mWindowManager.getDefaultDisplay().getHeight();
@@ -615,7 +615,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
             //Hero Spinner
             heroSpinner = expandedView.findViewById(R.id.name_spinner);
-            heroAdapter = new ArrayAdapter<>(this,spinnerNum, fiveStarBlueList);
+            heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarBlueList);
             heroSpinner.setAdapter(heroAdapter);
         }
 
@@ -780,7 +780,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         ImageView resRec = infoView.findViewById(R.id.res_rec);
 
         //Set HP bane/boon
-        switch(character[41]) {
+        switch (character[41]) {
             case "boon":
                 hpRec.setImageResource(positiveImage);
                 break;
@@ -791,7 +791,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 hpRec.setImageResource(R.drawable.ic_baseline_lens_24px);
         }
         //Set ATK bane/boon
-        switch(character[42]) {
+        switch (character[42]) {
             case "boon":
                 atkRec.setImageResource(positiveImage);
                 break;
@@ -803,7 +803,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         }
 
         //Set SPD bane/boon
-        switch(character[43]) {
+        switch (character[43]) {
             case "boon":
                 spdRec.setImageResource(positiveImage);
                 break;
@@ -815,7 +815,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         }
 
         //Set DEF bane/boon
-        switch(character[44]) {
+        switch (character[44]) {
             case "boon":
                 defRec.setImageResource(positiveImage);
                 break;
@@ -827,7 +827,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         }
 
         //Set RES bane/boon
-        switch(character[45]) {
+        switch (character[45]) {
             case "boon":
                 resRec.setImageResource(positiveImage);
                 break;
@@ -1137,7 +1137,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         ImageView brandImage2 = mFloatingWidgetView.findViewById(R.id.brand_image_info);
         ImageView backArrowImage = mFloatingWidgetView.findViewById(R.id.close_content_view);
 
-        if(!theme) {
+        if (!theme) {
             //Set all the colors for a light theme
             expandedView.setBackground(getResources().getDrawable(R.drawable.background));
             brandImage.setImageDrawable(getResources().getDrawable(R.drawable.black_brand));
@@ -1175,8 +1175,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             atkHi.setTextColor(getResources().getColor(R.color.hi_stat));
             resHi.setTextColor(getResources().getColor(R.color.hi_stat));
             defHi.setTextColor(getResources().getColor(R.color.hi_stat));
-        }
-        else {
+        } else {
             //Set all the colors for a dark theme
             expandedView.setBackground(getResources().getDrawable(R.drawable.background_dark));
             brandImage.setImageDrawable(getResources().getDrawable(R.drawable.yellow_brand));
@@ -1223,6 +1222,23 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         ImageView collapsedImage = mFloatingWidgetView.findViewById(R.id.collapsed_iv);
         collapsedImage.setAlpha(Float.valueOf(transparentNum));
     }
+
+    /*public static void generateNotification(Context context, String title, String message, int notificationId) {
+        int icon = R.drawable.icon;
+
+        //get instance of notification manager
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(icon)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+        Intent notificationIntent = new Intent(context, MainActivity.class);
+        PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
+        mBuilder.setContentIntent(intent);
+        notificationManager.notify(notificationId, mBuilder.build());
+    }*/
 
     @Override
     public void onDestroy() {

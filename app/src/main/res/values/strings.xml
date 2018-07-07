@@ -8,7 +8,7 @@
         y is for any design change
         z is for content changes, corrections
     -->
-    <string name="last_updated">Last Updated: 01 Jul 2018 \nv2.5.14</string>
+    <string name="last_updated">Last Updated: 06 Jul 2018 \nv2.5.15</string>
 
     <string name="feedback">Submit Feedback</string>
     <string name="title_send_feedback">Send Feedback</string>

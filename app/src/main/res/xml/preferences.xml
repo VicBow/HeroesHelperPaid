@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="theme_switch"
         android:summary="@string/theme_summary"
         android:title="@string/theme_title" />
-    <ListPreference
-        android:key="opaque_preference"
+    <!--<ListPreference
+        android:key="transparent_preference"
         android:title="@string/opacity"
         android:summary="@string/opacity_summary"
         android:inputType="number"
         android:entries="@array/opacity_array"
-        android:entryValues="@array/opacity_values" />
+        android:entryValues="@array/opacity_values" />-->
 
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
