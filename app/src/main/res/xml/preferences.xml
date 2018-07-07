@@ -5,14 +5,14 @@
         android:key="theme_switch"
         android:summary="@string/theme_summary"
         android:title="@string/theme_title" />
-    <ListPreference
+    <!--<ListPreference
         android:key="transparent_preference"
         android:title="@string/opacity"
         android:summary="@string/opacity_summary"
         android:inputType="number"
         android:entries="@array/opacity_array"
         android:entryValues="@array/opacity_values"
-        android:defaultValue="255"/>
+        android:defaultValue="255"/>-->
 
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
@@ -20,10 +20,10 @@
         android:summary="@string/hand_summary"
         android:title="@string/hand_title" />
 
-    <android.support.v7.preference.SwitchPreferenceCompat
+    <!--<android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="true"
         android:key="notification_switch"
         android:summary="@string/notification_summary"
-        android:title="@string/notification_title" />
+        android:title="@string/notification_title" />-->
 
 </PreferenceScreen>
