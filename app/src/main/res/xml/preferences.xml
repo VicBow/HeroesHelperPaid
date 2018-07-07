@@ -11,12 +11,19 @@
         android:summary="@string/opacity_summary"
         android:inputType="number"
         android:entries="@array/opacity_array"
-        android:entryValues="@array/opacity_values" />
+        android:entryValues="@array/opacity_values"
+        android:defaultValue="255"/>
 
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="hand_switch"
         android:summary="@string/hand_summary"
         android:title="@string/hand_title" />
+
+    <android.support.v7.preference.SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:key="notification_switch"
+        android:summary="@string/notification_summary"
+        android:title="@string/notification_title" />
 
 </PreferenceScreen>

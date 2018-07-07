@@ -8,7 +8,7 @@
         y is for any design change
         z is for content changes, corrections
     -->
-    <string name="last_updated">Last Updated: 06 Jul 2018 \nv3.5.15</string>
+    <string name="last_updated">Last Updated: 07 Jul 2018 \nv3.5.15</string>
 
     <string name="feedback">Submit Feedback</string>
     <string name="title_send_feedback">Send Feedback</string>
@@ -50,6 +50,8 @@
     <string name="opacity_summary">Change the opacity of the floating image</string>
     <string name="hand_title">Left handed?</string>
     <string name="hand_summary">Switch the icon to appear on the left side of the screen</string>
+    <string name="notification_title">Notification</string>
+    <string name="notification_summary">Close the icon via notification instead of the X</string>
 
     <string-array name="rating_stars">
         <item>&#9733; &#9733; &#9733; &#9733; &#9733;</item>

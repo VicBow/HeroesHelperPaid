@@ -97,16 +97,19 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     private int x_init_cord, y_init_cord, x_init_margin, y_init_margin, starting_x;
 
-    Boolean theme, hand;
+    private static NotificationManager notificationManager;
+    Boolean theme, hand, notification;
     int spinnerNum;
     SharedPreferences sharedPref;
     String transparentNum;
     public static int NOTIFICATION_ID = 1775;
+    public static FloatingWidgetService floatService;
 
     //Variable to check if the Floating widget view is on left side or in right side
     // initially we are displaying Floating widget view to Left side so set it to true
 
     public FloatingWidgetService() {
+        floatService = this;
     }
 
     @Nullable
@@ -125,6 +128,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         transparentNum = sharedPref.getString(SettingsActivity.KEY_PREF_TRANSPARENT, "1");
         hand = sharedPref.getBoolean(SettingsActivity.KEY_PREF_HAND, false);
+        notification = sharedPref.getBoolean(SettingsActivity.KEY_PREF_NOTIFICATION, true);
 
         super.onCreate();
 
@@ -291,8 +295,16 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         //find id of the recommended build layout
         buildView = mFloatingWidgetView.findViewById(R.id.build_container);
-        //TODO:
-        //generateNotification(this, "Testing Notification", "A summary", NOTIFICATION_ID);
+
+        if (notification) {
+            generateNotification(this, "Open the Main Screen", "Tap here to open the main app screen", NOTIFICATION_ID);
+            mFloatingWidgetView.findViewById(R.id.close_floating_view).setVisibility(View.GONE);
+        }
+        else {
+            if (notificationManager != null) {
+                notificationManager.cancel(NOTIFICATION_ID);
+            }
+        }
         addTextViews();
 
     }
@@ -1233,22 +1245,17 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         Intent closeIntent = new Intent(context, ActionReceiver.class);
         closeIntent.putExtra("close", "closeIcon");
 
-        Intent closeApp = new Intent(context, ActionReceiver.class);
-        closeApp.putExtra("close", "closeApp");
-
         PendingIntent pCloseIcon = PendingIntent.getBroadcast(context,1,closeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        PendingIntent pCloseApp = PendingIntent.getBroadcast(context, 2, closeApp, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
         //get instance of notification manager
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(icon)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .addAction(R.drawable.ic_close_black_24dp, "Close Icon", pCloseIcon)
-                .addAction(R.drawable.ic_close_black_24dp, "Close App", pCloseApp);
+                .addAction(R.drawable.ic_close_black_24dp, "Close Icon", pCloseIcon);
 
         Intent notificationIntent = new Intent(context, MainActivity.class);
         PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
@@ -1257,7 +1264,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     }
 
     public static void closeItem(String item) {
-
+        if (item.equals("icon"))
+            floatService.stopSelf();
     }
 
     @Override
