@@ -251,7 +251,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 PixelFormat.TRANSLUCENT);
         addFloatingWidgetView(inflater);
 
-        changeTransparency();
+        //changeTransparency();
 
         //method to implement the on click listeners
         implementClickListeners();
