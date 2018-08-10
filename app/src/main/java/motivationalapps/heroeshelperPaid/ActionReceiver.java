@@ -7,10 +7,12 @@ import android.content.Intent;
 public class ActionReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        String action = intent.getStringExtra("close");
+        String action = intent.getStringExtra("icon");
         if (action.equals("closeIcon")) {
-            //Toast.makeText(context, "Close the icon!", Toast.LENGTH_LONG).show();
-            FloatingWidgetService.closeItem("icon");
+            FloatingWidgetService.closeItem();
+        }
+        else if (action.equals("openIcon")) {
+            FloatingWidgetService.openItem();
         }
     }
 }

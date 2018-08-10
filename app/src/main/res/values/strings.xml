@@ -52,6 +52,8 @@
     <string name="hand_summary">Switch the icon to appear on the left side of the screen</string>
     <string name="notification_title">Notification</string>
     <string name="notification_summary">Close the icon via notification instead of the X</string>
+    <string name="channel_name">Persistent Notification</string>
+    <string name="channel_description">Notification in order to close the app</string>
 
     <string-array name="rating_stars">
         <item>&#9733; &#9733; &#9733; &#9733; &#9733;</item>
