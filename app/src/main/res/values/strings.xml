@@ -46,14 +46,14 @@
     <string name="theme_title">Enable Dark Mode</string>
     <string name="theme_summary">Switch to a Dark Theme</string>
     <string name="action_settings">Settings</string>
-    <string name="opacity">Image Opacity</string>
-    <string name="opacity_summary">Change the opacity of the floating image</string>
     <string name="hand_title">Left handed?</string>
     <string name="hand_summary">Switch the icon to appear on the left side of the screen</string>
     <string name="notification_title">Notification</string>
     <string name="notification_summary">Close the icon via notification instead of the X</string>
     <string name="channel_name">Persistent Notification</string>
     <string name="channel_description">Notification in order to close the app</string>
+    <string name="icon_size_title">Set the Icon Size</string>
+    <string name="icon_size_description">Tap here to change the icon size. \n(Closing expanded view updates icon size)</string>
 
     <string-array name="rating_stars">
         <item>&#9733; &#9733; &#9733; &#9733; &#9733;</item>
@@ -80,20 +80,10 @@
     </string-array>
     <string name="title_activity_settings">Settings</string>
 
-    <string-array name="opacity_array">
-        <item>Basically Invisible</item>
-        <item>There it is!</item>
-        <item>Somewhere in the middle</item>
-        <item>Much easier</item>
-        <item>Fully visible</item>
-    </string-array>
-
-    <string-array name="opacity_values">
-        <item>25</item>
-        <item>75</item>
-        <item>125</item>
-        <item>175</item>
-        <item>255</item>
+    <string-array name="icon_sizes">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
     </string-array>
 
 

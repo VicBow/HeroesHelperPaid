@@ -104,7 +104,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     Boolean theme, hand;
     int spinnerNum;
     SharedPreferences sharedPref;
-    String transparentNum;
+    String transparentNum, iconPreference;
     public static int NOTIFICATION_ID = 1775;
     public static FloatingWidgetService floatService;
 
@@ -129,6 +129,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         if (!theme) spinnerNum = R.layout.spinner_item;
         else spinnerNum = R.layout.spinner_item_dark;
 
+        iconPreference = sharedPref.getString(SettingsActivity.KEY_PREF_ICON_SIZE, "Large");
         transparentNum = sharedPref.getString(SettingsActivity.KEY_PREF_TRANSPARENT, "1");
         hand = sharedPref.getBoolean(SettingsActivity.KEY_PREF_HAND, false);
 
@@ -291,6 +292,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         //find id of collapsed view layout
         collapsedView = mFloatingWidgetView.findViewById(R.id.collapse_view);
+        updateIconSize();
 
         //find id of the expanded view layout
         expandedView = mFloatingWidgetView.findViewById(R.id.expanded_container);
@@ -436,6 +438,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 collapsedView.setVisibility(View.VISIBLE);
                 expandedView.setVisibility(View.GONE);
                 mWindowManager.updateViewLayout(mFloatingWidgetView, wrapParams);
+                updateIconSize();
                 break;
             /*case R.id.open_activity_button:
                 //open the activity and stop service
@@ -1287,6 +1290,25 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void updateIconSize() {
+        iconPreference = sharedPref.getString("icon_size", "Large");
+        ImageView icon = mFloatingWidgetView.findViewById(R.id.collapsed_iv);
+        switch (iconPreference) {
+            case "Large":
+                icon.getLayoutParams().height = (int) getResources().getDimension(R.dimen.large_size);
+                icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.large_size);
+                break;
+            case "Medium":
+                icon.getLayoutParams().height = (int) getResources().getDimension(R.dimen.medium_size);
+                icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.medium_size);
+                break;
+            case "Small":
+                icon.getLayoutParams().height = (int) getResources().getDimension(R.dimen.small_size);
+                icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.small_size);
+                break;
         }
     }
 
