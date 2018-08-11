@@ -87,7 +87,7 @@
                             android:id="@+id/rating_spinner"
                             android:layout_weight="1"
                             android:backgroundTint="@color/colorPrimaryDark"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"/>
                     </TableRow>
 
                     <TableRow>
@@ -256,6 +256,11 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
+                <!--<ImageView
+                    android:id="@+id/character_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".333"/>-->
                 <TextView
                     android:id="@+id/character_rating"
                     android:layout_width="0dp"

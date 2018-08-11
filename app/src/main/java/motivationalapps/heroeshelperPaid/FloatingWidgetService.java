@@ -52,10 +52,10 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private Spinner ratingSpinner;
     private Spinner weaponSpinner;
     private Spinner colorSpinner;
-    private int rating;
+    private int rating = 5;
     private Boolean isEquipped;
     private String characterEquipped;
-    private String color;
+    private String color = "blue";
     private Spinner heroSpinner;
     private int levelSelected;
     private String characterLevel;
@@ -76,6 +76,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     List<String> threeStarGreenList;
     List<String> threeStarRedList;
     List<String> threeStarColorlessList;
+    List<String> currentList;
     private int index;
     private TextView characterNameInfo;
     private TextView characterRatingInfo;
@@ -97,11 +98,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private TextView defHi;
     private TextView resHi;
 
-    private int x_init_cord, y_init_cord, x_init_margin, y_init_margin, starting_x;
+    private int x_init_cord, y_init_cord, x_init_margin, y_init_margin, starting_x, ratingPos, weaponPos, colorPos, heroPos;
 
     private static NotificationManagerCompat notificationManager;
     private static String CHANNEL_ID = "persNotification";
-    Boolean theme, hand;
+    Boolean theme, hand; //Theme is true for dark theme and hand is true for left hand
     int spinnerNum;
     SharedPreferences sharedPref;
     String transparentNum, iconPreference;
@@ -278,7 +279,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         Point size = new Point();
         mWindowManager.getDefaultDisplay().getSize(size);
-        if (hand) //They are right handed
+        if (hand) //They are left handed
             starting_x = 0;
 
         else starting_x = size.x;
@@ -548,22 +549,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //5 star character, grab from 5 star database
         if (rating == 5) {
             characterRatingInfo.setTextColor(ContextCompat.getColor(this, R.color.gold));
-            int length = fiveHeroesList.size();
-            String[] row;
-            int i = 0;
-            while (i < length) {
-                row = fiveHeroesList.get(i);
-                if (row[0].equals(character)) {
-                    index = i;
-                    i = length;
-                } else {
-                    i++;
-                }
-            }
+
         } else if (rating == 4) { //4 star character, grab from 5 star database
-            int length = fourHeroesList.size();
+            //int length = fourHeroesList.size();
             characterRatingInfo.setTextColor(ContextCompat.getColor(this, R.color.silver));
-            String[] row;
+            /*String[] row;
             int i = 0;
             while (i < length) {
                 row = fourHeroesList.get(i);
@@ -573,11 +563,11 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 } else {
                     i++;
                 }
-            }
+            }*/
         } else { //3 star character, grab from 5 star database
-            int length = threeHeroesList.size();
+            //int length = threeHeroesList.size();
             characterRatingInfo.setTextColor(ContextCompat.getColor(this, R.color.bronze));
-            String[] row;
+            /*String[] row;
             int i = 0;
             while (i < length) {
                 row = threeHeroesList.get(i);
@@ -587,6 +577,19 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 } else {
                     i++;
                 }
+            }*/
+        }
+
+        int length = fiveHeroesList.size();
+        String[] row;
+        int i = 0;
+        while (i < length) {
+            row = fiveHeroesList.get(i);
+            if (row[0].equals(character)) {
+                index = i;
+                i = length;
+            } else {
+                i++;
             }
         }
 
@@ -602,36 +605,21 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     private void fillSpinners() {
         //Setting default values
-        rating = 5;
-        color = "blue";
-        isEquipped = true;
+        //rating = 5;
+        //color = "blue";
+        //isEquipped = true;
 
         if (ratingAdapter != null && weaponAdapter != null && colorAdapter != null) {
-            ratingSpinner.setAdapter(ratingAdapter);
-            weaponSpinner.setAdapter(weaponAdapter);
-            colorSpinner.setAdapter(colorAdapter);
+            //ratingSpinner.setAdapter(ratingAdapter);
+            //weaponSpinner.setAdapter(weaponAdapter);
+            //colorSpinner.setAdapter(colorAdapter);
+
+            ratingSpinner.setSelection(ratingPos);
+            weaponSpinner.setSelection(weaponPos);
+            colorSpinner.setSelection(colorPos);
+            heroSpinner.setSelection(heroPos);
         } else {
-
-
-            //Rating Star Spinner
-            ratingSpinner = expandedView.findViewById(R.id.rating_spinner);
-            ratingAdapter = ArrayAdapter.createFromResource(this, R.array.rating_stars, spinnerNum);
-            ratingSpinner.setAdapter(ratingAdapter);
-
-            //Weapon equipped Spinner
-            weaponSpinner = expandedView.findViewById(R.id.weapon_spinner);
-            weaponAdapter = ArrayAdapter.createFromResource(this, R.array.weapons, spinnerNum);
-            weaponSpinner.setAdapter(weaponAdapter);
-
-            //Color Spinner
-            colorSpinner = expandedView.findViewById(R.id.color_spinner);
-            colorAdapter = ArrayAdapter.createFromResource(this, R.array.colors, spinnerNum);
-            colorSpinner.setAdapter(colorAdapter);
-
-            //Hero Spinner
-            heroSpinner = expandedView.findViewById(R.id.name_spinner);
-            heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarBlueList);
-            heroSpinner.setAdapter(heroAdapter);
+            updateSpinners();
         }
 
         //Change hero list based on rating selection
@@ -641,18 +629,16 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 switch (i) {
                     case 0:
                         rating = 5;
-                        //changeHeroAdapter();
                         break;
                     case 1:
                         rating = 4;
-                        //changeHeroAdapter();
                         break;
                     case 2:
                         rating = 3;
-                        //changeHeroAdapter();
                         break;
                 }
-                changeHeroAdapter();
+                //changeHeroAdapter();
+                ratingPos = ratingSpinner.getSelectedItemPosition();
             }
 
             @Override
@@ -675,6 +661,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                         characterEquipped = "Not Equipped";
                         break;
                 }
+                weaponPos = weaponSpinner.getSelectedItemPosition();
             }
 
             @Override
@@ -691,25 +678,27 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                     //Case 0 is blue
                     case 0:
                         color = "blue";
-                        //changeHeroAdapter();
+                        currentList = fiveStarBlueList;
                         break;
                     //Case 1 is Colorless
                     case 1:
                         color = "colorless";
-                        //changeHeroAdapter();
+                        currentList = fiveStarColorlessList;
                         break;
                     //Case 2 is Green
                     case 2:
                         color = "green";
-                        //changeHeroAdapter();
+                        currentList = fiveStarGreenList;
                         break;
                     //Case 3 is Red
                     case 3:
                         color = "red";
-                        //changeHeroAdapter();
+                        currentList = fiveStarRedList;
                         break;
                 }
+                colorPos = colorSpinner.getSelectedItemPosition();
                 changeHeroAdapter();
+
             }
 
             @Override
@@ -719,11 +708,23 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             }
         });
 
+        //Listen for a hero selected to remember
+        heroSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                heroPos = heroSpinner.getSelectedItemPosition();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
     }
 
     private void changeHeroAdapter() {
-        if (rating == 5) {
+        //if (rating == 5) {
             switch (color) {
                 case "blue":
                     heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarBlueList);
@@ -737,7 +738,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 case "red":
                     heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarRedList);
             }
-        } else if (rating == 4) {
+        /*} else if (rating == 4) {
             switch (color) {
                 case "blue":
                     heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarBlueList);
@@ -765,8 +766,9 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 case "red":
                     heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarRedList);
             }
-        }
+        }*/
         heroSpinner.setAdapter(heroAdapter);
+        heroSpinner.setSelection(heroPos);
     }
 
     private void setCharacterStats() {
@@ -853,7 +855,25 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 resRec.setImageResource(R.drawable.ic_baseline_lens_24px);
         }
 
-        if (!isEquipped && levelSelected == 1) {
+        if (character[40].equals("0")) {
+            hpLow.setText("n/a");
+            atkLow.setText("n/a");
+            spdLow.setText("n/a");
+            defLow.setText("n/a");
+            resLow.setText("n/a");
+            hpMid.setText("n/a");
+            atkMid.setText("n/a");
+            spdMid.setText("n/a");
+            defMid.setText("n/a");
+            resMid.setText("n/a");
+            hpHi.setText("n/a");
+            atkHi.setText("n/a");
+            spdHi.setText("n/a");
+            defHi.setText("n/a");
+            resHi.setText("n/a");
+        }
+
+        else if (!isEquipped && levelSelected == 1) {
             hpLow.setText(character[5]);
             atkLow.setText(character[6]);
             spdLow.setText(character[7]);
@@ -1132,6 +1152,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     private void setColorScheme() {
         theme = sharedPref.getBoolean(SettingsActivity.KEY_PREF_THEME, false);
+        if (!theme) spinnerNum = R.layout.spinner_item;
+        else spinnerNum = R.layout.spinner_item_dark;
         ImageView brandImage = mFloatingWidgetView.findViewById(R.id.brand_image);
         ImageView minimizeImage = mFloatingWidgetView.findViewById(R.id.close_expanded_view);
         TextView nameTextView = mFloatingWidgetView.findViewById(R.id.name);
@@ -1228,8 +1250,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             atkHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
             resHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
             defHi.setTextColor(getResources().getColor(R.color.hi_stat_dark));
-
         }
+        updateSpinners();
     }
 
     private void changeTransparency() {
@@ -1254,7 +1276,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 .setSmallIcon(icon)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(NotificationCompat.PRIORITY_LOW)
                 .addAction(R.drawable.ic_close_black_24dp, "Close Icon", pCloseIcon)
                 .addAction(R.drawable.ic_swords, "Open Icon", pOpenIcon)
                 .setOngoing(true);
@@ -1283,7 +1305,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = getString(R.string.channel_name);
             String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            int importance = NotificationManager.IMPORTANCE_LOW;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
             // Register the channel with the system; you can't change the importance
@@ -1310,6 +1332,34 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.small_size);
                 break;
         }
+    }
+
+    private void updateSpinners() {
+        //Rating Star Spinner
+        ratingSpinner = expandedView.findViewById(R.id.rating_spinner);
+        ratingAdapter = ArrayAdapter.createFromResource(this, R.array.rating_stars, spinnerNum);
+        ratingSpinner.setAdapter(ratingAdapter);
+
+        //Weapon equipped Spinner
+        weaponSpinner = expandedView.findViewById(R.id.weapon_spinner);
+        weaponAdapter = ArrayAdapter.createFromResource(this, R.array.weapons, spinnerNum);
+        weaponSpinner.setAdapter(weaponAdapter);
+
+        //Color Spinner
+        colorSpinner = expandedView.findViewById(R.id.color_spinner);
+        colorAdapter = ArrayAdapter.createFromResource(this, R.array.colors, spinnerNum);
+        colorSpinner.setAdapter(colorAdapter);
+
+        //Hero Spinner
+        if (currentList == null) currentList = fiveStarBlueList;
+        heroSpinner = expandedView.findViewById(R.id.name_spinner);
+        heroAdapter = new ArrayAdapter<>(this, spinnerNum, currentList);
+        heroSpinner.setAdapter(heroAdapter);
+
+        ratingSpinner.setSelection(ratingPos);
+        weaponSpinner.setSelection(weaponPos);
+        colorSpinner.setSelection(colorPos);
+        heroSpinner.setSelection(heroPos);
     }
 
     @Override

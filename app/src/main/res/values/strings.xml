@@ -2,13 +2,21 @@
     <string name="app_name">Heroes Helper</string>
     <string name="create_floating_widget">Get Started!</string>
     <string name="draw_other_app_permission_denied">Draw over other app permission not available. App won\'t work without permission. Please try again.</string>
+    <string name="dev_title">Dev Notes</string>
 
     <!-- v.x.y.z
         x is for any major update to app (new feature)
         y is for any design change
         z is for content changes, corrections
     -->
-    <string name="last_updated">Last Updated: 09 Aug 2018 \nv3.5.19</string>
+    <string name="last_updated">Last Updated: 10 Aug 2018 \nv4.5.21</string>
+    <string name="aug_10_2018">** NEW FEATURES!! **
+        \n\n** Persistent Notification: The icon can now be closed and opened from the notification created once you "Get Started!" You can also open the app from the notification as well!
+        \n\n** Icon size: Don\'t like how big the icon is on your screen? Now pick between Small, Medium, and Large sizes! **
+        \n\n** We have now made it so you can change the rating of the hero without it resetting the information! Unit information that does not exist for that rating level will display \"n/a\".
+        \n\n** The app now remembers what information you have displayed when you minimize down to the icon! Minimize the information and reopen it to be able to calculate the same character\'s IV
+        \n\nWe hope you enjoy the new updates! Please continue to notify us of any issues you may have. We will do our best to correct it!</string>
+    <string name="date1">10 August 2018</string>
 
     <string name="feedback">Submit Feedback</string>
     <string name="title_send_feedback">Send Feedback</string>

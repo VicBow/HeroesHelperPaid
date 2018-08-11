@@ -44,6 +44,17 @@
         android:textSize="20sp"
         android:layout_below="@+id/create_floating_widget"/>
 
+    <Button
+        android:id="@+id/dev_notes"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="devPage"
+        android:background="@drawable/button_background"
+        android:text="@string/dev_title"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:layout_below="@+id/settings"/>
+
     <TextView
         android:id="@+id/last_updated"
         style="@android:style/TextAppearance.DeviceDefault.Small"

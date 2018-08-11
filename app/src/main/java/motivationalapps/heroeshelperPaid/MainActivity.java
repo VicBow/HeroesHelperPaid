@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void devPage(View view) {
+        Intent intent = new Intent(getBaseContext(), DevNotes.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
