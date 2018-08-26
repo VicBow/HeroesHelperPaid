@@ -28,6 +28,12 @@
         android:entryValues="@array/icon_sizes"
         android:defaultValue="70dp"/>
 
+    <android.support.v7.preference.SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="close_icon"
+        android:summary="@string/close_icon_summary"
+        android:title="@string/close_icon_title"/>
+
     <!--<android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="true"
         android:key="notification_switch"

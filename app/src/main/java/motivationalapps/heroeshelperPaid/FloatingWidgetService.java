@@ -28,6 +28,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -102,12 +103,13 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     private static NotificationManagerCompat notificationManager;
     private static String CHANNEL_ID = "persNotification";
-    Boolean theme, hand; //Theme is true for dark theme and hand is true for left hand
+    Boolean theme, hand, iconX; //Theme is true for dark theme and hand is true for left hand and iconX is true for Yes
     int spinnerNum;
     SharedPreferences sharedPref;
     String transparentNum, iconPreference;
     public static int NOTIFICATION_ID = 1775;
     public static FloatingWidgetService floatService;
+    private Boolean gotExpanded;
 
     //Variable to check if the Floating widget view is on left side or in right side
     // initially we are displaying Floating widget view to Left side so set it to true
@@ -133,6 +135,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         iconPreference = sharedPref.getString(SettingsActivity.KEY_PREF_ICON_SIZE, "Large");
         transparentNum = sharedPref.getString(SettingsActivity.KEY_PREF_TRANSPARENT, "1");
         hand = sharedPref.getBoolean(SettingsActivity.KEY_PREF_HAND, false);
+
+        iconX = sharedPref.getBoolean(SettingsActivity.KEY_PREF_CLOSE_ICON, false);
 
         super.onCreate();
 
@@ -304,6 +308,10 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         //find id of the recommended build layout
         buildView = mFloatingWidgetView.findViewById(R.id.build_container);
 
+        if (iconX)
+            mFloatingWidgetView.findViewById(R.id.close_floating_view).setVisibility(View.VISIBLE);
+        else
+            mFloatingWidgetView.findViewById(R.id.close_floating_view).setVisibility(View.GONE);
 
         generateNotification(this, "Open the Main Screen", "Tap here to open the main app screen", NOTIFICATION_ID);
 
@@ -421,7 +429,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     }
 
     private void implementClickListeners() {
-        //mFloatingWidgetView.findViewById(R.id.close_floating_view).setOnClickListener(this);
+        mFloatingWidgetView.findViewById(R.id.close_floating_view).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.close_expanded_view).setOnClickListener(this);
         //mFloatingWidgetView.findViewById(R.id.open_activity_button).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.info_button).setOnClickListener(this);
@@ -439,7 +447,12 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 collapsedView.setVisibility(View.VISIBLE);
                 expandedView.setVisibility(View.GONE);
                 mWindowManager.updateViewLayout(mFloatingWidgetView, wrapParams);
+                gotExpanded = true;
                 updateIconSize();
+                break;
+
+            case R.id.close_floating_view:
+                stopSelf();
                 break;
             /*case R.id.open_activity_button:
                 //open the activity and stop service
@@ -521,6 +534,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             //when clicked, the collapsed view image will go away and the expanded view opens up
             collapsedView.setVisibility(View.GONE);
             expandedView.setVisibility(View.VISIBLE);
+            gotExpanded = true;
             //change params so that it matches screen width
             mWindowManager.updateViewLayout(mFloatingWidgetView, matchParams);
             //method to fill all the spinners
@@ -551,33 +565,10 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             characterRatingInfo.setTextColor(ContextCompat.getColor(this, R.color.gold));
 
         } else if (rating == 4) { //4 star character, grab from 5 star database
-            //int length = fourHeroesList.size();
             characterRatingInfo.setTextColor(ContextCompat.getColor(this, R.color.silver));
-            /*String[] row;
-            int i = 0;
-            while (i < length) {
-                row = fourHeroesList.get(i);
-                if (row[0].equals(character)) {
-                    index = i;
-                    i = length;
-                } else {
-                    i++;
-                }
-            }*/
+
         } else { //3 star character, grab from 5 star database
-            //int length = threeHeroesList.size();
             characterRatingInfo.setTextColor(ContextCompat.getColor(this, R.color.bronze));
-            /*String[] row;
-            int i = 0;
-            while (i < length) {
-                row = threeHeroesList.get(i);
-                if (row[0].equals(character)) {
-                    index = i;
-                    i = length;
-                } else {
-                    i++;
-                }
-            }*/
         }
 
         int length = fiveHeroesList.size();
@@ -604,15 +595,8 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     }
 
     private void fillSpinners() {
-        //Setting default values
-        //rating = 5;
-        //color = "blue";
-        //isEquipped = true;
 
         if (ratingAdapter != null && weaponAdapter != null && colorAdapter != null) {
-            //ratingSpinner.setAdapter(ratingAdapter);
-            //weaponSpinner.setAdapter(weaponAdapter);
-            //colorSpinner.setAdapter(colorAdapter);
 
             ratingSpinner.setSelection(ratingPos);
             weaponSpinner.setSelection(weaponPos);
@@ -697,6 +681,10 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                         break;
                 }
                 colorPos = colorSpinner.getSelectedItemPosition();
+                if (!gotExpanded) {
+                    heroPos = 0;
+                }
+                gotExpanded = false;
                 changeHeroAdapter();
 
             }
@@ -724,49 +712,20 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     }
 
     private void changeHeroAdapter() {
-        //if (rating == 5) {
-            switch (color) {
-                case "blue":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarBlueList);
-                    break;
-                case "colorless":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarColorlessList);
-                    break;
-                case "green":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarGreenList);
-                    break;
-                case "red":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarRedList);
-            }
-        /*} else if (rating == 4) {
-            switch (color) {
-                case "blue":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarBlueList);
-                    break;
-                case "colorless":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarColorlessList);
-                    break;
-                case "green":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarGreenList);
-                    break;
-                case "red":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, fourStarRedList);
-            }
-        } else {
-            switch (color) {
-                case "blue":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarBlueList);
-                    break;
-                case "colorless":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarColorlessList);
-                    break;
-                case "green":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarGreenList);
-                    break;
-                case "red":
-                    heroAdapter = new ArrayAdapter<>(this, spinnerNum, threeStarRedList);
-            }
-        }*/
+        switch (color) {
+            case "blue":
+                heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarBlueList);
+                break;
+            case "colorless":
+                heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarColorlessList);
+                break;
+            case "green":
+                heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarGreenList);
+                break;
+            case "red":
+                heroAdapter = new ArrayAdapter<>(this, spinnerNum, fiveStarRedList);
+        }
+
         heroSpinner.setAdapter(heroAdapter);
         heroSpinner.setSelection(heroPos);
     }
@@ -871,9 +830,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
             spdHi.setText("n/a");
             defHi.setText("n/a");
             resHi.setText("n/a");
-        }
-
-        else if (!isEquipped && levelSelected == 1) {
+        } else if (!isEquipped && levelSelected == 1) {
             hpLow.setText(character[5]);
             atkLow.setText(character[6]);
             spdLow.setText(character[7]);
@@ -1267,7 +1224,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         closeIntent.putExtra("icon", "closeIcon");
         openIntent.putExtra("icon", "openIcon");
 
-        PendingIntent pCloseIcon = PendingIntent.getBroadcast(context,1,closeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pCloseIcon = PendingIntent.getBroadcast(context, 1, closeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pOpenIcon = PendingIntent.getBroadcast(context, 2, openIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //get instance of notification manager
@@ -1318,20 +1275,31 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private void updateIconSize() {
         iconPreference = sharedPref.getString("icon_size", "Large");
         ImageView icon = mFloatingWidgetView.findViewById(R.id.collapsed_iv);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         switch (iconPreference) {
             case "Large":
                 icon.getLayoutParams().height = (int) getResources().getDimension(R.dimen.large_size);
                 icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.large_size);
+                lp.setMarginStart((int) getResources().getDimension(R.dimen.large_icon_size));
                 break;
             case "Medium":
                 icon.getLayoutParams().height = (int) getResources().getDimension(R.dimen.medium_size);
                 icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.medium_size);
+                lp.setMarginStart((int) getResources().getDimension(R.dimen.medium_icon_size));
                 break;
             case "Small":
                 icon.getLayoutParams().height = (int) getResources().getDimension(R.dimen.small_size);
                 icon.getLayoutParams().width = (int) getResources().getDimension(R.dimen.small_size);
+                lp.setMarginStart((int) getResources().getDimension(R.dimen.small_icon_size));
                 break;
         }
+        iconX = sharedPref.getBoolean(SettingsActivity.KEY_PREF_CLOSE_ICON, false);
+        if (iconX) {
+            mFloatingWidgetView.findViewById(R.id.close_floating_view).setVisibility(View.VISIBLE);
+            mFloatingWidgetView.findViewById(R.id.close_floating_view).setLayoutParams(lp);
+        }
+        else
+            mFloatingWidgetView.findViewById(R.id.close_floating_view).setVisibility(View.GONE);
     }
 
     private void updateSpinners() {

@@ -9,6 +9,7 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_TRANSPARENT = "transparent_preference";
     public static final String KEY_PREF_HAND = "hand_switch";
     public static final String KEY_PREF_ICON_SIZE = "icon_size";
+    public static final String KEY_PREF_CLOSE_ICON = "close_icon";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

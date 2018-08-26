@@ -9,7 +9,13 @@
         y is for any design change
         z is for content changes, corrections
     -->
-    <string name="last_updated">Last Updated: 10 Aug 2018 \nv4.5.21</string>
+    <string name="last_updated">Last Updated: 26 Aug 2018 \nv5.5.23</string>
+    <string name="aug_26_2018"> I apologize for the bug crashes and it taking me so long to fix. The Marine Corps has been keeping me busy. Here is what I got for you this time:
+    \n\n** Bug fix. The app will no longer crash when you change from one color drop down to the next if you have a character far down the list selected.
+    \n\n** A lot of people didn\'t like that I completely got rid of the X and made it a notification. You can now put the X back on the icon in the Settings tab. I apologize that
+    I took that away to some who liked it. The notification will still remain regardless, however, if you X out of the icon using the on-screen X, the \"close icon\" and \"open icon\" won\'t do anything for you.
+    \n\nI hope you all still enjoy the app. I am still trying to find the time to add screen recognition to the app. Please bare with me! Thanks again for the support!!</string>
+    <string name="date2">26 August 2018</string>
     <string name="aug_10_2018">** NEW FEATURES!! **
         \n\n** Persistent Notification: The icon can now be closed and opened from the notification created once you "Get Started!" You can also open the app from the notification as well!
         \n\n** Icon size: Don\'t like how big the icon is on your screen? Now pick between Small, Medium, and Large sizes! **
@@ -62,6 +68,8 @@
     <string name="channel_description">Notification in order to close the app</string>
     <string name="icon_size_title">Set the Icon Size</string>
     <string name="icon_size_description">Tap here to change the icon size. \n(Closing expanded view updates icon size)</string>
+    <string name="close_icon_title">Display the X on icon</string>
+    <string name="close_icon_summary">Do you want the X back on the icon?</string>
 
     <string-array name="rating_stars">
         <item>&#9733; &#9733; &#9733; &#9733; &#9733;</item>

@@ -28,7 +28,7 @@
                 tools:ignore="ContentDescription"/>
 
             <!--   Close button to close Floating Widget View  -->
-            <!--<ImageView
+            <ImageView
                 android:id="@+id/close_floating_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/circle_shape"
                 android:src="@drawable/ic_close_white_24dp"
-                tools:ignore="ContentDescription" />   -->
+                tools:ignore="ContentDescription" />
         </RelativeLayout>
 
         <!--   View while view is expanded   -->
